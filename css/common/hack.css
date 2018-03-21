@@ -1,0 +1,8 @@
+@charset "utf-8";
+
+body.ie7 .contentWrap {position:relative;}
+body.ie7 .contentWrap .contentRight {position:absolute; right:0; top:0;}
+body.ie7 span.button button {font-family:'dotum'; padding:0; line-height:15px;}
+body.ie7 span.button a {font-family:'dotum'; padding:0 6px; height:18px; line-height:18px;}
+body.ie7 span.button.ico a {padding:0; margin:0 3px;}
+body.ie7 input[type='text'] {height:18px; line-height:18px;}

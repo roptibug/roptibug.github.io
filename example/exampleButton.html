@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<jsp:include page="/WEB-INF/jsp/layout/head.jsp" />
+</head>
+<body>
+<jsp:include page="/WEB-INF/jsp/layout/unit.jsp" />
+<div id="container">
+	<jsp:include page="/WEB-INF/jsp/layout/header.jsp" />
+	<jsp:include page="/WEB-INF/jsp/layout/menu.jsp" />
+	<div id="wrapper">
+		<!-- wrapper -->
+	
+		<h2>버튼</h2>
+		<p>
+			<select>
+				<option>전체</option>
+			</select>
+			<input type="text" value="" />
+			<span class="button"><a href="#">a버튼</a></span>
+			<span class="button"><button type="submit">submit버튼</button></span>
+			<span class="button"><button type="reset">reset버튼</button></span>
+			<span class="button disabled"><button type="button">disabled버튼</button></span>
+			<span class="button down"><button type="button">추가</button></span>
+			<span class="button up"><button type="button">추가</button></span>
+			<span class="button left"><button type="button">추가</button></span>
+			<span class="button right"><button type="button">추가</button></span>
+		</p>
+		<div class="btnWrap">
+			<span class="button"><button type="button">버튼</button></span>
+			<span class="button"><button type="reset">초기화</button></span>
+			<span class="button"><button type="submit">저장</button></span>
+		</div>
+	
+		<div class="titleWrap">
+			<h4>최근 주문 내역</h4>
+			<div class="pickerArea">
+				<span class="datePicker" id="datePicker1" data-format="yyyyMMddHHmm">
+					<input type="text" value="" />
+					<input type="text" value="" />
+					<button type="button" class="btnDatePicker"></button>
+				</span>
+				<ul class="dateSelect">
+					<li data-term="7" class="on"><span class="button"><button type="button">1주일</button></span></li>
+					<li data-term="30"><span class="button"><button type="button">1개월</button></span></li>
+					<li data-term="90"><span class="button"><button type="button">3개월</button></span></li>
+					<li data-term="180"><span class="button"><button type="button">6개월</button></span></li>
+					<li data-term="365"><span class="button"><button type="button">1년</button></span></li>
+					<li data-term="all"><span class="button"><button type="button">전체</button></span></li>
+				</ul>
+				<script>
+				etbs.datePicker({
+					element : $('#datePicker1'),
+					callback : function(){}
+				});
+				</script>
+			</div>
+			<div class="btnArea">
+				<span class="button"><button type="button">버튼</button></span>
+				<span class="button"><button type="reset">초기화</button></span>
+				<span class="button"><button type="submit">저장</button></span>
+			</div>
+		</div>
+		<div class="sheetBtnWrap">
+			<span class="button"><button type="button">행추가</button></span>
+			<span class="button"><button type="button">삭제</button></span>
+			<span class="button"><button type="submit">저장</button></span>
+			<div class="btnArea">
+				<span class="button ico"><a href="#"><b class="up"></b></a></span>		
+				<span class="button ico"><a href="#"><b class="down"></b></a></span>			
+				<span class="button ico"><a title="화면설정" href="#"><b class="ico1"></b></a></span>
+				<span class="button ico"><a title="셀고정" href="#"><b class="ico2"></b></a></span>
+				<span class="button ico"><a title="항목선택" href="#"><b class="ico3"></b></a></span>
+				<span class="button ico"><a title="아이비시트 통합 엑셀다운로드" href="#"><b class="ico4"></b></a></span>
+				<span class="button ico"><a title="이미지로보기" href="#"><b class="ico5"></b></a></span>
+				<span class="button ico"><a title="텍스트로보기" href="#"><b class="ico6"></b></a></span>
+				<span class="button ico"><a title="엑셀다운로드" href="#"><b class="ico7"></b></a></span>
+				<span class="button ico"><a title="모든항목선택" href="#"><b class="ico8"></b></a></span>
+			</div>
+		</div>
+		
+		<!--// wrapper -->
+	</div>
+	<jsp:include page="/WEB-INF/jsp/layout/footer.jsp" />
+</div>
+</body>
+</html>

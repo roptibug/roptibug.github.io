@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<jsp:include page="/WEB-INF/jsp/layout/head.jsp" />
+<script src="/static/js/lib/ibmask/ibmaskedit.js"></script>
+</head>
+<body>
+<jsp:include page="/WEB-INF/jsp/layout/unit.jsp" />
+<div id="container">
+	<jsp:include page="/WEB-INF/jsp/layout/header.jsp" />
+	<jsp:include page="/WEB-INF/jsp/layout/menu.jsp" />
+	<div id="wrapper">
+		<!-- wrapper -->
+		<h2>IBMask</h2>
+
+		<input type="text" id="maskMe">
+		<script>
+		$('#maskMe').IBMaskEdit('yyyy-MM-dd hh:mm:ss');
+		</script>
+
+		<!--// wrapper -->
+	</div>
+	<jsp:include page="/WEB-INF/jsp/layout/footer.jsp" />
+</div>
+</body>
+</html>

@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+<head>
+<jsp:include page="/WEB-INF/jsp/layout/head.jsp" />
+</head>
+<body>
+<jsp:include page="/WEB-INF/jsp/layout/unit.jsp" />
+<div id="container">
+	<jsp:include page="/WEB-INF/jsp/layout/header.jsp" />
+	<jsp:include page="/WEB-INF/jsp/layout/menu.jsp" />
+	<div id="wrapper">
+		<!-- wrapper -->
+
+		<h2>id값 변경해서 사용하세요</h2>
+		<p class="lineThrough">datePicker1, datePicker2, datePicker3, datePicker4</p>
+		<br><br>
+
+		<h3>포맷</h3>
+		<p>yyyy-MM-dd</p>
+		<span class="datePicker" id="datePicker1" data-format="yyyy-MM-dd">
+			<input class="dateInput" type="text" value="" name="" />
+			<button type="button" class="btnDatePicker"></button>
+		</span>
+		<script>
+		etbs.datePicker({
+			element : $('#datePicker1'),
+			callback : function(){
+				console.log(1);
+			}
+		});
+		</script>
+		<br><br>
+
+		<p>yyyy-MM-dd HH:mm</p>
+		<span class="datePicker" id="datePicker2" data-format="yyyy-MM-dd HH:mm">
+			<input class="dateInput" type="text" value="" name="" />
+			<button type="button" class="btnDatePicker"></button>
+		</span>
+		<script>
+		etbs.datePicker({
+			element : $('#datePicker2'),
+			callback : function(){
+				console.log(2);
+			}
+		});
+		</script>
+		<br><br>
+
+		<h3>그룹 (yyyy-MM-dd)</h3>
+		<span class="datePicker" id="datePicker3" data-format="yyyy-MM-dd">
+			<input class="dateInput" type="text" value="2016-11-12" name="" />
+			<input class="dateInput" type="text" value="2016-12-11" name="" />
+			<button type="button" class="btnDatePicker"></button>
+		</span>
+		<script>
+		etbs.datePicker({
+			element : $('#datePicker3'),
+			callback : function(){
+				console.log(3);
+			}
+		});
+		</script>
+		<br><br>
+
+		<h3>기간 검색</h3>
+		<span class="datePicker" id="datePicker4" data-format="yyyy-MM-dd HH:mm">
+			<input type="text" value="" name="test1" />
+			<input type="text" value="" name="test2" />
+			<button type="button" class="btnDatePicker"></button>
+		</span>
+		<ul class="dateSelect">
+			<li data-term="7"><span class="button"><button type="button">1주일</button></span></li>
+			<li data-term="30" class="on"><span class="button"><button type="button">1개월</button></span></li>
+			<li data-term="90"><span class="button"><button type="button">3개월</button></span></li>
+			<li data-term="180"><span class="button"><button type="button">6개월</button></span></li>
+			<li data-term="365"><span class="button"><button type="button">1년</button></span></li>
+			<li data-term="all"><span class="button"><button type="button">전체</button></span></li>
+		</ul>
+		<script>
+		etbs.datePicker({
+			element : $('#datePicker4'),
+			callback : function(){
+				//console.log(4);
+				//console.log('start.date : ' + this.start.date.format('yyyy-MM-dd HH:mm'));
+				//console.log('end.date : ' + this.end.date.format('yyyy-MM-dd HH:mm'));
+			}
+		});
+		</script>
+		<br><br>
+
+		<h3>기간 검색</h3>
+		<span class="datePicker" id="datePicker4_1" data-format="yyyy-MM-dd HH:mm">
+			<input type="text" value="" name="test1" />
+			<input type="text" value="" name="test2" />
+			<button type="button" class="btnDatePicker"></button>
+		</span>
+		<select class="dateSelect">
+			<option value="0">오늘</option>
+			<option value="7">1주일</option>
+			<option value="30" selected="selected">1개월</option>
+			<option value="90">3개월</option>
+			<option value="180">6개월</option>
+			<option value="365">1년</option>
+			<option value="all">전체</option>
+		</select>
+		<script>
+		etbs.datePicker({
+			element : $('#datePicker4_1'),
+			callback : function(){
+				//console.log(4);
+				//console.log('start.date : ' + this.start.date.format('yyyy-MM-dd HH:mm'));
+				//console.log('end.date : ' + this.end.date.format('yyyy-MM-dd HH:mm'));
+			}
+		});
+		</script>
+		<br><br>
+
+
+
+		<h3>제한 기간 기능</h3>
+		<span class="datePicker" id="datePicker5" data-format="yyyy-MM-dd HH:mm">
+			<input class="dateInput" type="text" value="" name="" />
+			<input class="dateInput" type="text" value="" name="" />
+			<button type="button" class="btnDatePicker"></button>
+		</span>
+		<script>
+		/**
+		* (선택)제한기간 을 시작날짜와 종료날짜 사이만 선택할 수 있다.
+		*/
+		etbs.datePicker({
+			element : $('#datePicker5'),
+			limit : { //(선택)제한기간
+				start : '20161103',
+				end : '20161225'
+			},
+			callback : function(){
+				console.log(this.limit); //etbs.datePicker.datePicker5
+				//console.log('start.date : ' + this.start.date.format('yyyy-MM-dd HH:mm'));
+				//console.log('end.date : ' + this.end.date.format('yyyy-MM-dd HH:mm'));
+			}
+		});
+		</script>
+		<br><br>
+		<h3>제한 기간 기능</h3>
+		<span class="datePicker" id="datePicker5_1" data-format="yyyy-MM-dd HH:mm">
+			<input class="dateInput" type="text" value="" name="" />
+			<button type="button" class="btnDatePicker"></button>
+		</span>
+		<script>
+		etbs.datePicker({
+			element : $('#datePicker5_1'),
+			limit : { //(선택)제한기간
+				start : '2016-11-03', //(yyyyy-MM-dd,yyyyyMMdd 등등 포맷 일자까지만 받음)
+				end : '2016-12-25'
+			},
+			callback : function(){
+				console.log(this.limit); //etbs.datePicker.datePicker5
+				//console.log('start.date : ' + this.start.date.format('yyyy-MM-dd HH:mm'));
+				//console.log('end.date : ' + this.end.date.format('yyyy-MM-dd HH:mm'));
+			}
+		});
+		</script>
+		<br><br>
+
+
+
+
+		<h3>제외 날짜 기능</h3>
+		<span class="datePicker" id="datePicker6" data-format="yyyy-MM-dd HH:mm">
+			<input class="dateInput" type="text" value="2015-11-12 08:42" name="" />
+			<input class="dateInput" type="text" value="2016-12-12 08:42" name="" />
+			<button type="button" class="btnDatePicker"></button>
+		</span>
+		<script>
+		/**
+		* limitUrl 에 year과 month 파라메터를 보내고 시작날짜와 종료날짜 년월이 바뀔때마다 해당 제외날짜를 구해온다.
+		* '01,05,10,15,18' 스트링 배열로 데이터를 받아야 한다.
+		*/
+		etbs.datePicker({
+			element : $('#datePicker6'),
+			limitUrl : '/example/getDateLimit',
+			callback : function(){
+				console.log(6); //etbs.datePicker.datePicker6
+			}
+		});
+		</script>
+		<br><br>
+
+		<h3>제외 날짜 기능 2</h3>
+		<span class="datePicker" id="datePicker7" data-format="yyyy-MM-dd HH:mm">
+			<input class="dateInput" type="text" value="2015-11-12 08:42" name="" />
+			<button type="button" class="btnDatePicker"></button>
+		</span>
+		<script>
+		/**
+		* limitUrl 에 year과 month 파라메터를 보내고 시작날짜와 종료날짜 년월이 바뀔때마다 해당 제외날짜를 구해온다.
+		* '01,05,10,15,18' 스트링 배열로 데이터를 받아야 한다.
+		*/
+		etbs.datePicker({
+			element : $('#datePicker7'),
+			limitUrl : '/example/getDateLimit',
+			callback : function(){
+				console.log(6); //etbs.datePicker.datePicker6
+			}
+		});
+		</script>
+		<br><br>
+
+
+
+		<!--// wrapper -->
+	</div>
+	<jsp:include page="/WEB-INF/jsp/layout/footer.jsp" />
+</div>
+</body>
+</html>

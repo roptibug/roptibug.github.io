@@ -1,0 +1,86 @@
+@charset "utf-8";
+
+.sheetT {width:auto; box-sizing:border-box;}
+.sheetT th {padding:2px 10px; text-shadow:1px 1px 1px #fff; color:#555; text-align:center; box-shadow:inset 1px 1px 1px #eee; border:1px solid #cecece;}
+.sheetT td {padding:0 5px; height:24px; border:1px solid #cecece;  white-space:nowrap;}
+.sheetT tr {background:#fff;}
+.sheetT tr:nth-child(2n) {background:#fefefe;}
+.sheetT tr:hover {background:#f6feff;}
+.sheetT tr.on {background:#fcffee;}
+.sheetT tr.new {background:#f6f4ff;}
+.sheetT tr.off {background:#ffeeee; text-decoration:line-through; color:#ff0000;}
+.sheetT tr.off select {text-decoration:line-through; color:#ff0000;}
+.sheetT tr label {width:100%; position:relative; overflow:hidden; white-space:nowrap; text-overflow:ellipsis; display:block; box-sizing:border-box;}
+.sheetT tr label .buttonDate {position:absolute; right:0; top:0;}
+.sheetT tr.on label,
+.sheetT tr.new label {padding:0;}
+.sheetT tr td.noData {text-align:center; padding:208px 0; background:#f9f9f9;}
+
+.selT {width:100%;}
+.selT td {padding:3px 0 0 0;}
+
+.rowT th,
+.rowT td,
+.colT th,
+.colT td {border:1px solid #ddd; white-space:nowrap;}
+
+.searchWrapper table td textarea,
+.rowT td textarea,
+.colT td textarea {white-space:pre-line;}
+
+.searchWrapper {width:100%; padding:7px 0; border:1px solid #ccc; white-space:nowrap; clear:both; box-sizing:border-box; background-color:#fdfdfd;}
+.searchWrapper table {}
+.searchWrapper table th {width:50px; background:url(/static/img/basic/search_dot.gif) no-repeat 15px 11px #fdfdfd; font-size:12px; padding:5px 15px 5px 25px; text-align:left; color:#555; position:relative;}
+.searchWrapper table th.required {background-image:url(/static/img/basic/search_dot_required.gif); color:#ff0000;}
+.searchWrapper table th:after {content:':'; width:10px; height:10px; position:absolute; right:0; top:5px;}
+.searchWrapper table td {padding:3px 15px 3px 5px; background:#fdfdfd;}
+
+table th.bg {background-color:#c9e1f5;}
+
+.scroll {overflow:auto; width:100%; box-sizing:border-box;}
+
+.rowT {width:100%; margin-bottom:-1px;}
+.rowT th {text-align:center; padding:3px 10px;}
+.rowT th.tc {text-align:center;}
+.rowT td {padding:3px 5px;}
+
+.colT {width:100%; margin-bottom:-1px;}
+.colT th {font-size:12px; padding:3px 6px; letter-spacing:-1px; text-align:left; color:#555; width:110px;}
+.colT th.tc {text-align:center;}
+.colT th:after {content:''; display:block; width:110px; height:0;}
+.colT td {padding:3px 5px 4px 5px; height:21px;}
+
+.colT.sizeL th {width:120px;}
+
+.calendarT {width:100%;}
+.calendarT th {width:14%; text-align:center; font-size:12px; background:#eee; padding:5px; border:1px solid #ddd;}
+.calendarT td {padding:5px; border:1px solid #ddd; height:100px; vertical-align:top; position:relative; text-align:right;}
+.calendarT td:first-child {background:#fff0f0;}
+.calendarT td.today {color:#7a78bc; background:#fffac5;}
+.calendarT td b {font-weight:bold; position:absolute; left:5px; top:7px;}
+.calendarT td:first-child {color:#ff5500;}
+.calendarT td:last-child {color:#396cff;}
+.calendarT td .button {display:block; letter-spacing:-1px; margin-bottom:5px;}
+.calendarT td.holiday .add {display:none;}
+.calendarT td .add {opacity:0.5;}
+.calendarT td .add:hover {opacity:1;}
+.calendarT p {padding-left:10px; font-weight:normal !important;} /* background:url(/static/img/basic/dot.gif) no-repeat 5px 9px; cursor:pointer;*/
+
+.guideT {width:100%; white-space:nowrap;}
+.guideT th {text-align:left; width:200px; padding:2px 10px; color:#555; background:#eee; border:1px solid #ccc;}
+.guideT td {padding:2px 5px; color:#666; border:1px solid #ccc;}
+.guideT td label {cursor:pointer;}
+.type p.type,
+.type01 p.type01,
+.type02 p.type02,
+.type03 p.type03 {display:block;}
+
+.type p.type01,
+.type p.type02,
+.type p.type03 {display:block;}
+
+.boardT {width:100%;}
+.boardT th {text-align:center; background:#eee; padding:5px; border:1px solid #ddd;}
+.boardT td {padding:5px; border:1px solid #ddd; text-align:center;}
+.boardT td.tit {text-align:left;}
+.boardT td.tit a.file {background:url(/static/img/basic/ico_file.png) no-repeat right 3px; display:inline-block; padding-right:20px;}

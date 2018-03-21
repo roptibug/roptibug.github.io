@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+<jsp:include page="/WEB-INF/jsp/layout/head.jsp" />
+</head>
+<body>
+<jsp:include page="/WEB-INF/jsp/layout/unit.jsp" />
+<div id="container">
+	<jsp:include page="/WEB-INF/jsp/layout/header.jsp" />
+	<jsp:include page="/WEB-INF/jsp/layout/menu.jsp" />
+	<div id="wrapper">
+		<!-- wrapper -->
+		<h2>팝업</h2>
+		<p>1. 팝업 기본은 중앙정렬이다 </p>
+		<p>2. 팝업 위에 팝업을  override 설정으로 로 띄울수 있다. {override:true}</p>
+		<p>3. 팝업이 닫히는 시점에 설정한 callback 함수가 실행한다. {callback:function(){}}</p>
+		<p>3. 팝업ID는 화면당 하나여야한다.</p>
+
+		<br><br>
+
+
+		<h3>팝업 <span>레이어</span></h3>
+		<span class="button popAddress" onclick="testPop1()"><button type="button">우편번호찾기</button></span>
+		<script>
+		function testPop1(){
+			etbs.popup({
+				target : 'popAddress',
+				width : 700,
+				height : 600,
+				callback : function(e){
+				}
+			});
+		}
+		</script>
+		<span class="button popCalendarAdd" onclick="testPop2()"><button type="button">휴일설정</button></span>
+		<script>
+		function testPop2(){
+			etbs.popup({
+				target :'popCalendarAdd',
+				width : 630,
+				height : 370,
+				callback : function(e){
+				}
+			});
+		}
+		</script>
+		<span class="button popCategory" onclick="testPop3()"><button type="button">관리분류 조회</button></span>
+		<script>
+		function testPop3(){
+			etbs.popup({
+				target :'popCategory',
+				width : 500,
+				height : 380,
+				callback : function(e){
+				}
+			});
+		}
+		</script>
+		<span class="button popCompany" onclick="testPop4()"><button type="button">사업자정보 확인</button></span>
+		<script>
+		function testPop4(){
+			etbs.popup({
+				target :'popCompany',
+				width : 400,
+				height : 200,
+				callback : function(e){
+				}
+			});
+		}
+		</script>
+		<span class="button popCompanyNone" onclick="testPop5()"><button type="button">사업자정보 확인 없음</button></span>
+		<script>
+		function testPop5(){
+			etbs.popup({
+				target :'popCompanyNone',
+				width : 400,
+				height : 200,
+				callback : function(e){
+				}
+			});
+		}
+
+		</script>
+		<span class="button popMemberHistory" onclick="testPop6()"><button type="button">회원등급이력</button></span>
+		<script>
+		function testPop6(){
+			etbs.popup({
+				target :'popMemberHistory',
+				width : 500,
+				height : 500,
+				callback : function(e){
+				}
+			});
+		}
+		</script>
+		<span class="button popMemberSearch" onclick="testPop7()"><button type="button">회원조회</button></span>
+		<script>
+		function testPop7(){
+			etbs.popup({
+				target :'popMemberSearch',
+				width : 500,
+				height : 500,
+				callback : function(e){
+				}
+			});
+		}
+		</script>
+		<span class="button popSelect" onclick="testPop8()"><button type="button">선택팝업</button></span>
+		<script>
+		function testPop8(){
+			etbs.popup({
+				target :'popSelect',
+				width : 300,
+				height : 350,
+				callback : function(e){
+				}
+			});
+		}
+		</script>
+		<!--// wrapper -->
+
+
+		<br><br><br><br><br>
+
+
+		<h3>팝업 <span>윈도우팝업</span></h3>
+		<span class="button" onclick="popGiftLogDetail()"><button type="button">기프티콘 로그 상세</button></span>
+		<script>
+		function popGiftLogDetail(){
+			etbs.wpopup({
+				target : 'popGiftLogDetail',
+				url : '/popup/example/popGiftLogDetail',
+				width : 800,
+				param : {
+					param1 : '1',
+					param2 : '2',
+				},
+				height : 700,
+				callback : function(e){
+					console.log(e);
+					console.log(etbs.wpopup.popGiftLogDetail);
+				}
+			});
+		}
+		</script>
+
+		<span class="button" onclick="popMember()"><button type="button">회원조회</button></span>
+		<script>
+		function popMember(){
+			etbs.wpopup({
+				target : 'popMember',
+				url : '/popup/example/popMember',
+				width : 600,
+				param : null,
+				height : 700,
+				callback : function(e){
+					console.log(e);
+					console.log(etbs.wpopup.popMember);
+				}
+			});
+		}
+		</script>
+	</div>
+	<jsp:include page="/WEB-INF/jsp/layout/footer.jsp" />
+</div>
+<!-- 팝업영역 -->
+<jsp:include page="/WEB-INF/jsp/popup/example/popAddress.jsp" /><!-- 우편번호찾기 -->
+<jsp:include page="/WEB-INF/jsp/popup/example/popCalendarAdd.jsp" /><!-- 휴일설정 -->
+<jsp:include page="/WEB-INF/jsp/popup/example/popCalendarView.jsp" /><!-- 사업자정보확인 -->
+<jsp:include page="/WEB-INF/jsp/popup/example/popCategory.jsp" /><!-- 관리분류조회 -->
+<jsp:include page="/WEB-INF/jsp/popup/example/popCompany.jsp" /><!-- 사업자정보확인 -->
+<jsp:include page="/WEB-INF/jsp/popup/example/popCompanyNone.jsp" /><!-- 사업자정보확인없음 -->
+<jsp:include page="/WEB-INF/jsp/popup/example/popMemberHistory.jsp" /><!-- 회원등급이력 -->
+<jsp:include page="/WEB-INF/jsp/popup/example/popMemberSearch.jsp" /><!-- 회원조회 -->
+<jsp:include page="/WEB-INF/jsp/popup/example/popSelect.jsp" /><!-- 사업자정보확인 -->
+<!--// 팝업영역 -->
+</body>
+</html>

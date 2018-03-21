@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>ETBS</title>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta http-equiv="cache-control" content="no-cache" />
+<meta http-equiv="expires" content="0" />
+<meta http-equiv="pragma" content="no-cache" />
+<meta name="viewport" id="viewport" />
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta name="fragment" content="!" />
+<link rel="shortcut icon" href="/static/img/favicon.ico" type="image/x-icon" />
+<link rel="stylesheet" href="/static/css/etbs/etbs.css" type="text/css" />
+<script src="/static/js/lib/jquery/jquery-1.11.1.min.js"></script>
+<script src="/static/js/lib/jquery/jquery.mask.js"></script>
+<script src="/static/js/lib/jquery/jquery.form.js"></script>
+<script src="/static/js/lib/ibsheet/ibleaders.js"></script>
+<script src="/static/js/lib/ibsheet/ibsheet.js"></script>
+<script src="/static/js/module/ibsheet.custom.js"></script>
+<script src="/static/js/module/etbs.component.js"></script>
+<script src="/static/js/module/etbs.datePicker.js"></script>
+<script src="/static/js/module/etbs.validator.js"></script>
+<script src="/static/js/module/etbs.common.js"></script>
+<script>
+var FAVORITE_MENU = '${FAVORITE_MENU}';
+</script>
+</head>
+<body>
+<jsp:include page="/WEB-INF/jsp/layout/unit.jsp" />
+<div id="container">
+	<jsp:include page="/WEB-INF/jsp/layout/header.jsp" />
+	<jsp:include page="/WEB-INF/jsp/layout/menu.jsp" />
+	<div id="wrapper">
+		<!-- wrapper -->
+		<h2>경고창</h2>
+		<p>1. 단순 alert 창과 confirm 창이 이존재한다.</p>
+		<p>2. confirm 의 경우 {type:'confirm'} 를 추가한다.</p>
+		<p>2. confirmCallback 와 cancelCallback 이존재한다.</p>
+		<br><br>
+
+		<h3>될수있으면 한줄로 사용해주세요</h3>
+
+		<p>
+			<span class="button" onclick="test333()"><button type="button">경고창</button></span>
+		</p>
+
+		<script>
+		function test333(){
+			etbs.alert.open({message : '될수있으면 한줄로 사용해주세요'});
+		}
+		</script>
+
+
+		<br><br><br><br>
+
+		<script>
+		var testConfirmCallback = function(){
+			console.log('testConfirmCallback')
+		}
+		var testCancelCallback = function(){
+			console.log('testCancelCallback')
+		}
+		</script>
+		<span class="button" onclick="test1()"><button type="button">경고창</button></span>
+		<script>
+		function test1(){
+			etbs.alert.open({
+				message : '알림창을 확인해주세요',
+				callback : function(e){
+					console.log('1번째창 : ' + e);
+				}
+			})
+		}
+		</script>
+		<br><br>
+		<span class="button" onclick="test2()"><button type="button">확인창</button></span>
+		<script>
+		function test2(){
+			etbs.alert.open({
+				confirm : true,
+				message : '알림창을 확인해주세요',
+				width : 330,
+				height : 230,
+				callback : function(e){
+					console.log('2번째창 : ' + e);
+				}
+			});
+		}
+		</script>
+
+		<br><br>
+		<!--// wrapper -->
+	</div>
+	<jsp:include page="/WEB-INF/jsp/layout/footer.jsp" />
+</div>
+</body>
+</html>

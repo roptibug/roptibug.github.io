@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+<head>
+<jsp:include page="/WEB-INF/jsp/layout/head.jsp" />
+</head>
+<body>
+<jsp:include page="/WEB-INF/jsp/layout/unit.jsp" />
+<div id="container">
+<%-- 	<jsp:include page="/WEB-INF/jsp/layout/header.jsp" /> --%>
+<%-- 	<jsp:include page="/WEB-INF/jsp/layout/menu.jsp" /> --%>
+	<div id="wrapper">
+		<!-- wrapper -->
+		<h2>폼</h2>
+
+		<form name="testForm">
+			<div class="searchWrapper">
+				<table>
+					<tr>
+						<th>숫자</th>
+						<td>
+							<input type="text" placeholder="숫자만 입력" data-valid="label:'숫자';number:true">
+						</td>
+					</tr>
+					<tr>
+						<th>정수</th>
+						<td>
+							<input type="text" placeholder="숫자만 입력" data-valid="label:'정수';digit:true">
+						</td>
+					</tr>
+					<tr>
+						<th class="required">필수 input</th>
+						<td><input type="text" name="name2" placeholder="값 입력 후 엔터" data-valid="label:'이름';required:true"></td>
+					</tr>
+					<tr>
+						<th class="required">필수 select</th>
+						<td>
+							<select name="city" data-valid="label:'도시';required:true">
+								<option>선택하세요</option>
+								<option>서울</option>
+								<option>인천</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<th id="dependencyTh">다른 필드에 의존하는 필수 체크</th>
+						<td>
+							<input type="text" id="dependency" placeholder="값 입력 후 엔터" data-valid="label:'의존하는입력박스';required:'#checkme'">
+							<label>체크 되어 있을때만 필수 체크 <input type="checkbox" id="checkme"></label>
+						</td>
+					</tr>
+					<tr>
+						<th>여러 체크 박스 중 하나라도 체크되면 통과</th>
+						<td>
+							<input type="text" class="sizeXL" 
+									data-valid="label:'아무 체크박스나 체크되어 있으면 필수검사하는 입력란';required:'[name=allForOne]'" />
+							<input type="checkbox" name="allForOne" />
+							<input type="checkbox" name="allForOne" />
+							<input type="checkbox" name="allForOne" />
+						</td>
+					</tr>
+					<tr>
+						<th>라디오에 의존하는 필수 체크<br><br></th>
+						<td id="dependencyTd">
+							<span id="span10">첫 번째 입력박스</span>&nbsp; 
+							<input type="text" id="dependency1" placeholder="값 입력 후 엔터" 
+									data-valid="label:'첫번째입력박스';required:'[name=imRadio][value=10]'">
+							<br>
+							<span id="span20">두 번째 입력박스</span>&nbsp;
+							<input type="text" id="dependency2" placeholder="값 입력 후 엔터" 
+									data-valid="label:'두번째입력박스';required:'[name=imRadio][value=20]'">
+							<label>필수1<input type="radio" name="imRadio" value="10"></label><label> 필수2<input type="radio" name="imRadio" value="20"></label><br>
+						</td>
+					</tr>
+					<tr>
+						<th>셀렉트에 의존하는 필수 체크<br><br></th>
+						<td id="dependencyTd2">
+							<span id="span110">첫 번째 입력박스</span>&nbsp; 
+							<input type="text" id="dependency1" placeholder="값 입력 후 엔터" 
+									data-valid="label:'첫번째입력박스';required:'#selectMe option[value=110]'">
+							<br>
+							<span id="span220">두 번째 입력박스</span>&nbsp;
+							<input type="text" id="dependency2" placeholder="값 입력 후 엔터" 
+									data-valid="label:'두번째입력박스';required:'#selectMe option[value=220]'">
+							
+							<select id="selectMe">
+								<option></option>
+								<option value="110">첫 번째 입력박스는 필수</option>
+								<option value="220">두 번째 입력박스는 필수</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<th id="dependencyTh2">필수 select: 라디오에 의존</th>
+						<td>
+							<ul class="inline">
+								<li>
+									<select data-valid="label:'도시';required:'[name=imRadio2][value=required]'">
+										<option>선택하세요</option>
+										<option>서울</option>
+										<option>인천</option>
+									</select>
+								</li>
+								<li><label><input type="radio" name="imRadio2" value="required" id="check"> 입력</label></li>
+								<li><label><input type="radio" name="imRadio2" value="notRequired" checked="checked"> 입력안함</label></li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>이메일</th>
+						<td><input type="text" class="sizeXL" placeholder="이메일을 입력해주세요" data-valid="label:'이메일';email:true"></td>
+					</tr>
+					<tr>
+						<th>URL</th>
+						<td><input type="text" class="sizeXL" placeholder="URL을 입력해주세요 (http://)" data-valid="label:'URL';url:true"></td>
+					</tr>
+					<tr>
+						<th>대상</th>
+						<td><input type="text" class="sizeXL" placeholder="100 이상 1000 이하 숫자" data-valid="label:'100 이상 1000 이하 숫자';range:100,1000"></td>
+					</tr>
+					<tr>
+						<th>제목</th>
+						<td><input type="text" class="sizeXL" placeholder="길이가 1이상 3이하 문자" data-valid="label:'제목';rangelength:1,3"></td>
+					</tr>
+					<tr>
+						<th>제목1</th>
+						<td><input type="text" class="sizeXL" placeholder="byte가 12이상 문자" data-valid="label:'제목1';maxbytes:12"></td>
+					</tr>
+					<tr>
+						<th>제목2</th>
+						<td><input type="text" class="sizeXL" placeholder="byte가 12이하 문자" data-valid="label:'제목2';maxlength:12"></td>
+					</tr>
+					<tr>
+						<th>제목3</th>
+						<td><input type="text" class="sizeXL" placeholder="byte가 3이상 6이하 문자" data-valid="label:'제목3';rangebytes:3,6"></td>
+					</tr>
+				</table>
+			</div>
+			<div class="btnWrap">
+				<span class="button"><button type="submit">조회</button></span>
+				<span class="button"><button type="reset">초기화</button></span>
+			</div>
+		</form>
+		<script>
+		etbs.validator.submit({
+			element : $('form[name="testForm"]'),
+			callback : function(success){
+				if(success){
+					etbs.alert.open({message: 'success'});
+					/* $.post('/example/example7', this.element.serialize(), function(data) {
+						console.log(data);
+					}); */
+				}
+			}
+		});
+		</script>
+
+		<form name="testForm2">
+			<table class="colT">
+				<tr>
+					<th>설명</th>
+					<td>
+						<textarea class="byteChecker" data-max="4000" style="height:60px;" data-valid="label:'설명';maxbytes:4000;required:true">4000byte 이하로 작성 테스트</textarea>
+						<p class="checker"><b>0</b>/4000byte</p>
+					</td>
+				</tr>
+				<tr>
+					<th>SMS</th>
+					<td>
+						<textarea class="lengthChecker" data-max="80" style="height:60px;" data-valid="label:'SMS';maxlength:80">SMS문자 내용은 80자 이하로 작성 가능합니다.</textarea>
+						<p class="checker"><b>0</b>/80자</p>
+					</td>
+				</tr>
+			</table>
+			<div class="btnWrap">
+				<span class="button"><button type="submit">등록</button></span>
+				<span class="button"><button type="reset">초기화</button></span>
+			</div>
+		</form>
+		<script>
+		etbs.validator.submit({
+			element : $('form[name="testForm2"]'),
+			callback : function(success){
+				if(success){
+					/* $.post('/example/example7', this.element.serialize(), function(data) {
+						console.log(data);
+					}); */
+				}
+			}
+		});
+		</script>
+
+		<!--// wrapper -->
+	</div>
+	<jsp:include page="/WEB-INF/jsp/layout/footer.jsp" />
+</div>
+<script>
+$('[name=imRadio]').change(function(event) {
+	console.debug($(this).val());
+	$('#span' + $(this).val()).css('color', 'red');
+	$('#dependencyTd span').not('#span' + $(this).val()).css('color', '#888')
+});
+$('#selectMe').change(function(event) {
+	console.debug($(this).val());
+	$('#span' + $(this).val()).css('color', 'red');
+	$('#dependencyTd2 span').not('#span' + $(this).val()).css('color', '#888')
+});
+$('#checkme').change(function(event) {
+	console.debug($(this).val());
+	if ($(this).is(':checked')) {
+		$('#dependencyTh').addClass('required');
+	} else {
+		$('#dependencyTh').removeClass('required');
+	}
+});
+$('[name=imRadio2]').change(function(event) {
+	console.debug($(this).val());
+	if ($(this).val() == 'notRequired') {
+		$('#dependencyTh2').css('color', 'red');
+	} else {
+		$('#dependencyTh2').css('color', '#888')
+	}
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+<jsp:include page="/WEB-INF/jsp/layout/head.jsp" />
+</head>
+<body>
+<jsp:include page="/WEB-INF/jsp/layout/unit.jsp" />
+<div id="container">
+	<jsp:include page="/WEB-INF/jsp/layout/header.jsp" />
+	<jsp:include page="/WEB-INF/jsp/layout/menu.jsp" />
+	<div id="wrapper">
+		<!-- wrapper -->
+		<h2>텝1 (기능없는거)</h2>
+		
+		
+		<div class="titleWrap">
+			<h4>대상등록방식</h4>
+			<div class="pickerArea">
+				<ul class="radio">
+					<li><label><input type="radio" name="cd1" checked="checked" /> 고객사</label></li>
+					<li><label><input type="radio" name="cd1" /> 엑셀파일</label></li>
+				</ul>
+			</div>
+		</div>
+		<div class="tabWrap">
+			<ul class="tab">
+				<li class="on">고객사 양식</li>
+				<li>회원 양식</li>
+			</ul>
+		</div>
+		
+		
+		<h2>텝2 (기능있는거)</h2>
+		<div class="tabWrap">
+			<ul class="tab" id="tabDisplay">
+				<li>고객사 양식1111</li>
+				<li>회원 양식</li>
+			</ul>
+			<div class="tabBtnArea">
+				<span class="button"><button type="button">텝우측버튼</button></span>
+			</div>
+		</div>
+		<div class="tabContentWrap" id="tabDisplayWrap">
+			<div class="tabContent">
+				내용1
+			</div>
+			<div class="tabContent">
+				내용2
+			</div>
+		</div>
+		<script>
+		etbs.tab({
+			element : $('#tabDisplay'),
+			tabContentWrap :  $('#tabDisplayWrap'),
+			index : 1, //0부터 index 순
+			callback : function(e){
+			}
+		});
+		</script>
+		
+		<button type="button" onclick="etbs.tab.tabDisplay.init(0)">텝1</button>
+		<button type="button" onclick="etbs.tab.tabDisplay.init(1)">텝2</button>
+		
+		<h2>텝3 (기능있는거)</h2>
+		<div class="tabWrap">
+			<ul class="tab" id="tabOrder">
+				<li>고객사 양식</li>
+				<li>회원 양식</li>
+				<li>카테고리</li>
+			</ul>
+		</div>
+		<div class="tabContentWrap" id="tabOrderWrap">
+			<div class="tabContent">
+				내용1
+			</div>
+			<div class="tabContent">
+				내용2
+			</div>
+			<div class="tabContent">
+				내용3
+			</div>
+		</div>
+		<script>
+		etbs.tab({
+			element : $('#tabOrder'),
+			tabContentWrap :  $('#tabOrderWrap'),
+			index : 0, //0부터 index 순
+			callback : function(e){
+			}
+		});
+		</script>
+		
+		<div class="titleWrap">
+			<h4>슬라이드 테스트</h4>
+			<div class="btnArea">
+				<span class="button ico"><a href="javascript:void(0)"><b class="etbsSlide up" data-target="slideOrderInfo"></b></a></span>
+			</div>
+		</div>
+		<div class="slideArea slideOrderInfo">
+			<table class="colT">
+				<colgroup>
+					<col class="sizeTH">
+					<col class="sizeA" />
+					<col class="sizeTH">
+					<col class="sizeA" />
+					<col class="sizeTH">
+					<col class="sizeA" />
+				</colgroup>
+				<tr>
+					<th class="required">회원명/ID</th>
+					<td>
+						<input type="text" name="" id="" value="어윤진(yjeo)" size="12">
+						<span class="button"><a href="#">회원찾기</a></span>
+						<span class="button"><a href="#">비회원 주문</a></span>
+					</td>
+					<th class="required">연락처</th>
+					<td>
+						<input type="text" name="" id="" value="" maxlength="3" size="3"> - 
+						<input type="text" name="" id="" value="" maxlength="4" size="4"> - 
+						<input type="text" name="" id="" value="" maxlength="4" size="4">
+					</td>
+					<th class="required">비밀번호</th>
+					<td><input type="password" name="" id="" value="" value="*****"></td>
+				</tr>
+				<tr>
+					<th>보내는 사람</th>
+					<td>
+						<input type="text" name="" id="" value="어윤진" size="12">
+					</td>
+					<th class="required">E메일</th>
+					<td colspan="3">
+						<input type="text" name="" id="" value="aaaa@naver.com" size="30">
+					</td>
+				</tr>
+			</table>
+		</div>
+		<!--// wrapper -->
+	</div>
+	<jsp:include page="/WEB-INF/jsp/layout/footer.jsp" />
+</div>
+</body>
+</html>
