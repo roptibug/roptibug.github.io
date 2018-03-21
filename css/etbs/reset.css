@@ -20,7 +20,7 @@ table caption {display:none;}
 h1,h2,h3,h4,h5 {font-size:12px; box-sizing:border-box;}
 th {background:#f2f2f2; white-space:nowrap; font-weight:normal; text-align:left;}
 th b {font-size:12px;}
-th.required {background:url(/static/img/basic/required.gif) no-repeat left top #f2f2f2;}
+th.required {background:url(/img/basic/required.gif) no-repeat left top #f2f2f2;}
 input {font-family:'돋움','dotum','verdana','arial',sans-serif; font-size:12px; vertical-align:middle;}
 select {font-family:'돋움','dotum','verdana','arial',sans-serif;font-size:12px; color:#777; line-height:20px; height:20px; box-sizing:border-box; padding:0 2px; border:1px solid #b1b1b1; color:#555; background:#fff; vertical-align:middle;}
 

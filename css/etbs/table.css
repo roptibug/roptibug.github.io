@@ -30,8 +30,8 @@
 
 .searchWrapper {width:100%; padding:7px 0; border:1px solid #ccc; white-space:nowrap; clear:both; box-sizing:border-box; background-color:#fdfdfd;}
 .searchWrapper table {}
-.searchWrapper table th {width:50px; background:url(/static/img/basic/search_dot.gif) no-repeat 15px 11px #fdfdfd; font-size:12px; padding:5px 15px 5px 25px; text-align:left; color:#555; position:relative;}
-.searchWrapper table th.required {background-image:url(/static/img/basic/search_dot_required.gif); color:#ff0000;}
+.searchWrapper table th {width:50px; background:url(/img/basic/search_dot.gif) no-repeat 15px 11px #fdfdfd; font-size:12px; padding:5px 15px 5px 25px; text-align:left; color:#555; position:relative;}
+.searchWrapper table th.required {background-image:url(/img/basic/search_dot_required.gif); color:#ff0000;}
 .searchWrapper table th:after {content:':'; width:10px; height:10px; position:absolute; right:0; top:5px;}
 .searchWrapper table td {padding:3px 15px 3px 5px; background:#fdfdfd;}
 
@@ -64,7 +64,7 @@ table th.bg {background-color:#c9e1f5;}
 .calendarT td.holiday .add {display:none;}
 .calendarT td .add {opacity:0.5;}
 .calendarT td .add:hover {opacity:1;}
-.calendarT p {padding-left:10px; font-weight:normal !important;} /* background:url(/static/img/basic/dot.gif) no-repeat 5px 9px; cursor:pointer;*/
+.calendarT p {padding-left:10px; font-weight:normal !important;} /* background:url(/img/basic/dot.gif) no-repeat 5px 9px; cursor:pointer;*/
 
 .guideT {width:100%; white-space:nowrap;}
 .guideT th {text-align:left; width:200px; padding:2px 10px; color:#555; background:#eee; border:1px solid #ccc;}
@@ -83,4 +83,4 @@ table th.bg {background-color:#c9e1f5;}
 .boardT th {text-align:center; background:#eee; padding:5px; border:1px solid #ddd;}
 .boardT td {padding:5px; border:1px solid #ddd; text-align:center;}
 .boardT td.tit {text-align:left;}
-.boardT td.tit a.file {background:url(/static/img/basic/ico_file.png) no-repeat right 3px; display:inline-block; padding-right:20px;}
+.boardT td.tit a.file {background:url(/img/basic/ico_file.png) no-repeat right 3px; display:inline-block; padding-right:20px;}

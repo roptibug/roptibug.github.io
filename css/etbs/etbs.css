@@ -6,12 +6,6 @@
 @import "popup.css";
 @import "hack.css";
 
-@import "../user/user.css";
-@import "../product/product.css";
-@import "../order/order.css";
-@import "../display/display.css";
-@import "../error/error.css";
-
 /**********************
 	subdomain :
 		malladmin (협력사)
@@ -86,7 +80,7 @@ ul.color li {width:10px; height:10px; float:left;}
 .targetColor {display:inline-block; width:20px; height:20px; box-siziing:border-box; vertical-align:middle; border-radius:3px;}
 .helpColor {display:none; position:absolute; z-index:700; left:0; top:0; width:252px;}
 
-#guide {background:url(/static/img/basic/dimmed.png) repeat; width:240px; height:100%; position:fixed; z-index:100; right:-240px; border-left:1px solid #333; top:0;}
+#guide {background:url(/img/basic/dimmed.png) repeat; width:240px; height:100%; position:fixed; z-index:100; right:-240px; border-left:1px solid #333; top:0;}
 #guide .scroll {width:100%; height:100%; overflow:auto;}
 #guide dl {padding:10px 10px 0 10px; line-height:18px; color:#666;}
 #guide dl dt {font-weight:bold; padding-bottom:5px;}
@@ -98,10 +92,10 @@ ul.color li {width:10px; height:10px; float:left;}
 #container {width:100%; overflow:hidden; position:relative; box-sizing:border-box;}
 
 #wrapper {padding:10px; box-sizing:border-box; overflow:hidden; position:relative; min-height:810px;}
-#wrapper h2 {color:#333; padding:10px 0 0 25px; font-size:14px; background:url(/static/img/basic/dot_h2.gif) no-repeat 3px 13px;}
-#wrapper h3 {color:#333; padding:10px 0 0 25px; font-size:14px; background:url(/static/img/basic/dot_h3.gif) no-repeat 8px 15px;}
-#header {width:100%; border-bottom:1px solid #d6e6f1; background-color:#f1f6f8;} /* background:url(/static/img/basic/bg_top.png) repeat-x; */
-#header .wrap {width:100%; height:80px; position:relative;}/* background:url(/static/img/basic/bg_top_dot.png) repeat; */
+#wrapper h2 {color:#333; padding:10px 0 0 25px; font-size:14px; background:url(/img/basic/dot_h2.gif) no-repeat 3px 13px;}
+#wrapper h3 {color:#333; padding:10px 0 0 25px; font-size:14px; background:url(/img/basic/dot_h3.gif) no-repeat 8px 15px;}
+#header {width:100%; border-bottom:1px solid #d6e6f1; background-color:#f1f6f8;} /* background:url(/img/basic/bg_top.png) repeat-x; */
+#header .wrap {width:100%; height:80px; position:relative;}/* background:url(/img/basic/bg_top_dot.png) repeat; */
 #header h1 {line-height:35px; font-weight:normal; text-align:left; padding-left:10px; font-size:22px; color:#444; font-family:'arial','verdana','돋움','dotum',sans-serif;}
 #header h1 a {color:#444;}
 #header h1 span {font-size:18px; font-weight:bold; color:#777;}
@@ -109,8 +103,8 @@ ul.color li {width:10px; height:10px; float:left;}
 #header .login b {font-size:12px;}
 #header .login a {color:#333;}
 #header .login .button {margin-left:10px; margin-top:-1px;}
-#header .menuOpen {width:30px; height:30px; left:0; top:50px; z-index:3; cursor:pointer; background:url(/static/img/basic/btn_aside_open.png) no-repeat; position:absolute;}
-#header .menuClose {width:30px; height:30px; left:200px; top:80px; z-index:3; cursor:pointer; background:url(/static/img/basic/btn_aside_close.png) no-repeat; position:absolute;}
+#header .menuOpen {width:30px; height:30px; left:0; top:50px; z-index:3; cursor:pointer; background:url(/img/basic/btn_aside_open.png) no-repeat; position:absolute;}
+#header .menuClose {width:30px; height:30px; left:200px; top:80px; z-index:3; cursor:pointer; background:url(/img/basic/btn_aside_close.png) no-repeat; position:absolute;}
 #header ul.menu {position:absolute; left:160px; height:30px; overflow:hidden; top:51px; width:100%; box-sizing:border-box; padding-right:160px;}
 #header ul.menu li {border:1px solid #d6e6f1; display:block; vertical-align:bottom; height:30px; margin-right:5px; padding:0; line-height:30px; color:#fff; position:relative; float:right; background-color:#71a0c8;}
 #header ul.menu li a {display:block; padding:0 35px 0 25px; color:#fff;}
@@ -118,7 +112,7 @@ ul.color li {width:10px; height:10px; float:left;}
 #header ul.menu li.on {background:#fff; color:#555; font-weight:bold; letter-spacing:-1px;}
 #header ul.menu li.on a {color:#333;}
 #header ul.menu li.link {background:#1f4b70;}
-#header ul.menu li .close {display:block; cursor:pointer; position:absolute; right:5px; top:5px; width:18px; height:18px; background:url(/static/img/basic/btn_fav_close.png) repeat 0 -18px;}
+#header ul.menu li .close {display:block; cursor:pointer; position:absolute; right:5px; top:5px; width:18px; height:18px; background:url(/img/basic/btn_fav_close.png) repeat 0 -18px;}
 #header ul.menu li.on .close {background-position:0 0;}
 
 .company #header {background-color:#a88cb2;}
@@ -161,15 +155,15 @@ ul.color li {width:10px; height:10px; float:left;}
 .templateWrap .con1 {width:205px; height:150px; float:left; box-sizing:border-box; margin:10px;}
 .templateWrap .con1 table td {border:1px solid #ff46f8; width:50px; height:50px; box-sizing:border-box;}
 .templateWrap .con1 table td.on {background:#ffc5fd;}
-.btnMenu {width:24px; cursor:pointer; height:48px; position:fixed; z-index:100; left:0; top:42px; background:url(/static/img/basic/btn_bg.png) no-repeat;}
-.btnMenu span {display:block; position:absolute; left:5px; top:20px; width:5px; height:9px; background:url(/static/img/basic/btn_on.png) no-repeat;}
+.btnMenu {width:24px; cursor:pointer; height:48px; position:fixed; z-index:100; left:0; top:42px; background:url(/img/basic/btn_bg.png) no-repeat;}
+.btnMenu span {display:block; position:absolute; left:5px; top:20px; width:5px; height:9px; background:url(/img/basic/btn_on.png) no-repeat;}
 .btnMenu.on {left:200px; display:none;}
-.btnMenu.on span {background:url(/static/img/basic/btn_off.png) no-repeat;}
+.btnMenu.on span {background:url(/img/basic/btn_off.png) no-repeat;}
 
-#menu span.iconYn {width:11px; height:11px; background:url(/static/img/basic/ico_aside.png) no-repeat; position:absolute; right:10px; top:9px; display:block;}
+#menu span.iconYn {width:11px; height:11px; background:url(/img/basic/ico_aside.png) no-repeat; position:absolute; right:10px; top:9px; display:block;}
 #menu .on span.iconYn {background-position:0 -11px;}
 
-#menu span.iconFav {cursor:pointer; display:block; width:15px; position:absolute; left:5px; top:7px; height:15px; background:url(/static/img/basic/btn_fav.png) no-repeat;}
+#menu span.iconFav {cursor:pointer; display:block; width:15px; position:absolute; left:5px; top:7px; height:15px; background:url(/img/basic/btn_fav.png) no-repeat;}
 #menu .iconFav.on {background-position:0 -15px;}
 #menu h4 .iconFav {display:none;}
 #menu h5 .iconFav {left:10px;}
@@ -205,36 +199,36 @@ ul.color li {width:10px; height:10px; float:left;}
 }
 
 .txtIe7 {width:100%; height:100%; position:fixed; left:0; top:0; z-index:1000; background:#eee;}
-.txtIe7 div {font-size:14px; background:url(/static/img/basic/ie_icon.png) no-repeat center top; position:absolute; text-align:center; top:50%; left:0; width:100%; height:300px; margin-top:-150px;}
+.txtIe7 div {font-size:14px; background:url(/img/basic/ie_icon.png) no-repeat center top; position:absolute; text-align:center; top:50%; left:0; width:100%; height:300px; margin-top:-150px;}
 .txtIe7 div p {padding-top:270px;}
 .txtIe7 div a {font-weight:bold;}
 
 /**********************
 	help : 말풍선
 **********************/
-span.etbsHelp {cursor:pointer; z-index:800; display:inline-block; width:19px; height:19px; margin:-3px 0 0 3px; vertical-align:middle; border-radius:100%; background:url(/static/img/basic/icon_help.png) no-repeat -1px -1px #fff; box-sizing:border-box; border:1px solid #999;}
+span.etbsHelp {cursor:pointer; z-index:800; display:inline-block; width:19px; height:19px; margin:-3px 0 0 3px; vertical-align:middle; border-radius:100%; background:url(/img/basic/icon_help.png) no-repeat -1px -1px #fff; box-sizing:border-box; border:1px solid #999;}
 span.etbsHelp.noicon {cursor:pointer; display:inline-block;  width:auto; height:auto; margin:0; border-radius:none; background:none; border:0;}
 div.etbsHelp {position:absolute; z-index:800; padding:5px 10px; display:none; left:300px; top:300px; width:200px; height:100px; background:#fffde7; border:1px solid #333;}
 
 div.etbsLayer {position:absolute; z-index:800; padding:5px 10px; display:none; left:300px; top:300px; width:200px; height:100px; background:#fff; border:1px solid #333;}
 div.etbsLayer .close{position:absolute; right:10px; top:3px;}
 
-#validHelp {position:absolute; display:none; white-space:nowrap; min-width:100px; z-index:1100; padding:0 10px 0 33px; line-height:30px; white-space:nowrap; color:#333; left:100px; top:85px; border:1px solid #fc362f; background:url(/static/img/basic/icon_error.png) no-repeat 9px 7px #fffeea; box-sizing:border-box;}
-#validHelp .arrow {position:absolute; left:13px; top:-5px; width:11px; height:5px; display:block; background:url(/static/img/basic/ico_help_arrow.png) no-repeat; background-color:transparent;}
+#validHelp {position:absolute; display:none; white-space:nowrap; min-width:100px; z-index:1100; padding:0 10px 0 33px; line-height:30px; white-space:nowrap; color:#333; left:100px; top:85px; border:1px solid #fc362f; background:url(/img/basic/icon_error.png) no-repeat 9px 7px #fffeea; box-sizing:border-box;}
+#validHelp .arrow {position:absolute; left:13px; top:-5px; width:11px; height:5px; display:block; background:url(/img/basic/ico_help_arrow.png) no-repeat; background-color:transparent;}
 
 /**********************
 	alert : 경고창
 **********************/
-#alert {width:100%; height:100%; position:fixed; left:0; top:0; z-index:12000; display:none; background:url(/static/img/basic/dimmedWeak.png) repeat;}
+#alert {width:100%; height:100%; position:fixed; left:0; top:0; z-index:12000; display:none; background:url(/img/basic/dimmedWeak.png) repeat;}
 #alert .wrapper {width:200px; height:100px; margin-left:-100px; background-color:#fff; margin-top:-50px; position:fixed; left:50%; top:50%; background:#fff; box-sizing:border-box; border:1px solid #333; box-shadow:0 0 10px rgba(0,0,0,0.5);}
 #alert .wrapper .alert {text-align:center; line-height:20px; padding:15px 10px 3px 10px; font-size:11px;}
 
 /**********************
 	sheet : 시트 관련
 **********************/
-.titleWrap {z-index:2; overflow:hidden; border:1px solid #bbb; background:url(/static/img/basic/th_bg.png) repeat-x left top #eee; height:30px; line-height:30px; margin-top:7px; padding:0 5px; margin-bottom:-1px; box-sizing:border-box; position:relative;}
-.titleWrap.off {background:url(/static/img/basic/th_bg.png) repeat-x left top #fff; opacity:0.9;}
-.titleWrap h4 {color:#444; background:url(/static/img/basic/dot_h4.gif) no-repeat 3px 12px; padding:0 0 0 15px;}
+.titleWrap {z-index:2; overflow:hidden; border:1px solid #bbb; background:url(/img/basic/th_bg.png) repeat-x left top #eee; height:30px; line-height:30px; margin-top:7px; padding:0 5px; margin-bottom:-1px; box-sizing:border-box; position:relative;}
+.titleWrap.off {background:url(/img/basic/th_bg.png) repeat-x left top #fff; opacity:0.9;}
+.titleWrap h4 {color:#444; background:url(/img/basic/dot_h4.gif) no-repeat 3px 12px; padding:0 0 0 15px;}
 .titleWrap h4 span {font-weight:normal; font-size:11px; color:#777;}
 .titleWrap h4 span strong {color:#ff5500;}
 .titleWrap .btnArea {position:absolute; right:5px; top:-2px;}
@@ -278,8 +272,8 @@ td .sheetBtnWrap {width:99% !important;}
 	unit : 각종 유닛
 **********************/
 
-#loading {position:fixed; display:none; width:100%; height:100%; left:0; top:0; /* background:url(/static/img/basic/dimmedWeak.png) repeat; */ z-index:1000;}
-#loading .loader {margin:-20px 0 0 -20px; position:absolute; z-index:2; left:50%; top:50%; width:45px; height:45px; background:url('/static/img/basic/progress.png') no-repeat 0 0}
+#loading {position:fixed; display:none; width:100%; height:100%; left:0; top:0; /* background:url(/img/basic/dimmedWeak.png) repeat; */ z-index:1000;}
+#loading .loader {margin:-20px 0 0 -20px; position:absolute; z-index:2; left:50%; top:50%; width:45px; height:45px; background:url('/img/basic/progress.png') no-repeat 0 0}
 #loading .message {margin:-85px 0 0 -150px; background:#fff; box-sizing:border-box; border:1px solid #333; box-shadow:0 0 10px rgba(0,0,0,0.5); position:absolute; z-index:1; left:50%; top:50%; width:300px; height:150px; background:#fff;}
 #loading .message p {padding:20px; text-align:center; color:#333;}
 
@@ -302,9 +296,9 @@ input.autoComplete {width:220px;}
 .autoCompleteLayer li.on  {background:#ffeee4;}
 .autoCompleteLayer li b {color:#ff5500;}
 
-#dimmed {display:none; position:fixed; left:0; top:0; width:100%; height:100%; z-index:200; background:url(/static/img/basic/dimmed.png) repeat; }
+#dimmed {display:none; position:fixed; left:0; top:0; width:100%; height:100%; z-index:200; background:url(/img/basic/dimmed.png) repeat; }
 #dimmed.transparent {background:none; z-index:450;}
-#dimmed.weak {background:url(/static/img/basic/dimmedWeak.png) repeat;}
+#dimmed.weak {background:url(/img/basic/dimmedWeak.png) repeat;}
 
 .space {width:100%; height:10px; clear:both;}
 .clear {clear:both;}
@@ -343,7 +337,7 @@ ul.inline li input[type="checkbox"],
 ul.block li input[type="checkbox"] {vertical-align:middle; margin-top:-3px;}
 
 ul.dot {padding-top:7px;}
-ul.dot li {background:url(/static/img/basic/dot.gif) no-repeat 8px 8px; padding:3px 0 5px 15px; line-height:15px;}
+ul.dot li {background:url(/img/basic/dot.gif) no-repeat 8px 8px; padding:3px 0 5px 15px; line-height:15px;}
 ul.dot li a {text-decoration:underline; color:#0d75b1; font-weight:normal;}
 ul.dot li span.txt {color:#0d75b1;}
 
@@ -352,7 +346,7 @@ ul.dot li span.txt {color:#0d75b1;}
 
 .tabBtnArea {position:absolute; right:0; top:0px;}
 
-ul.tab {height:29px; overflow:hidden; width:100%; background:url(/static/img/basic/bg_tabWrap.gif) repeat-x left bottom;}
+ul.tab {height:29px; overflow:hidden; width:100%; background:url(/img/basic/bg_tabWrap.gif) repeat-x left bottom;}
 ul.tab li {height:27px; margin-right:3px; color:#fff; cursor:pointer; padding:0 20px; line-height:26px; position:relative; float:left; background-color:#aaa; border:1px solid #999;}
 ul.tab li a {color:#fff; display:block;}
 ul.tab li.on {background-color:#ff5500; color:#fff; border:1px solid #ff5500;}
@@ -398,9 +392,9 @@ input.dateInput {width:165px;}
 #datePicker table td span.disabled {background-color:#eee; color:#bbb;}
 #datePicker .nav {height:21px; margin-bottom:2px; position:relative; text-align:center;}
 #datePicker .nav select {margin:0 2px;}
-#datePicker .btn_prev {position:absolute; left:23px; top:3px; display:block; cursor:pointer; height:15px; width:15px; background:url(/static/img/basic/btn_calendar_nav.png) no-repeat 0 0;}
+#datePicker .btn_prev {position:absolute; left:23px; top:3px; display:block; cursor:pointer; height:15px; width:15px; background:url(/img/basic/btn_calendar_nav.png) no-repeat 0 0;}
 #datePicker .btn_prev:hover {background-position:0 -15px;}
-#datePicker .btn_next {position:absolute; right:23px; top:3px; display:block; cursor:pointer; height:15px; width:15px; background:url(/static/img/basic/btn_calendar_nav.png) no-repeat -15px 0;}
+#datePicker .btn_next {position:absolute; right:23px; top:3px; display:block; cursor:pointer; height:15px; width:15px; background:url(/img/basic/btn_calendar_nav.png) no-repeat -15px 0;}
 #datePicker .btn_next:hover {background-position:-15px -15px;}
 #datePicker .time {width:100%; text-align:center; padding-top:5px; display:none;}
 #datePicker .time select {margin-left:3px;}

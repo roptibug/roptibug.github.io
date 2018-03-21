@@ -477,7 +477,7 @@ var etbs = {};
 		});
 		/**
 		 * 즐겨찾기
-		 */
+		
 		if(FAVORITE_MENU){
 			FAVORITE_MENU = $.parseJSON(FAVORITE_MENU);
 		}
@@ -490,7 +490,7 @@ var etbs = {};
 					$('#header ul.menu').append('<li data-menu-no="'+FAVORITE_MENU[i].menuNo+'"><a href="'+href+'">'+menuNm+'</a><span class="close" data-menu-no="'+FAVORITE_MENU[i].menuNo+'"></span></li>');
 				}
 			});
-		}
+		} */
 		var header = settings.top.header,
 			favDel = settings.top.favDel,
 			favAdd = settings.left.favAdd;
@@ -962,7 +962,7 @@ var etbs = {};
 				dispScrnSetYn : null
 			},
 			searchLayer : $('#autoCompleteLayer'), 	  //(공통)자동완성 레이어 엘레먼트
-			url : '/display/getAutoCompleteList' ,	  //(필수)API URL , test = /static/data/getCompanyList.json
+			url : '/display/getAutoCompleteList' ,	  //(필수)API URL , test = /data/getCompanyList.json
 			keyIndex : 0,							  //(공통)위아래 방향키 index
 			close : function(settings){
 				$.ajax({

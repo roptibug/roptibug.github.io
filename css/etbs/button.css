@@ -4,8 +4,8 @@
 .btnWrap.tl {text-align:left;}
 .btnWrap.tr {text-align:right;}
 
-.btnDatePicker {background:url(/static/img/basic/btn_canlendar.gif) no-repeat; width:20px; height:20px;}
-.btnSearch  {background:url(/static/img/basic/btn_search.gif) no-repeat; width:20px; height:20px;}
+.btnDatePicker {background:url(/img/basic/btn_canlendar.gif) no-repeat; width:20px; height:20px;}
+.btnSearch  {background:url(/img/basic/btn_search.gif) no-repeat; width:20px; height:20px;}
 
 .button a {box-shadow:1px 2px 2px rgba(0,0,0,0.1); border:1px solid #888; background:#999; background:linear-gradient(#888,#999); border-radius:2px; color:#fff; display:inline-block; white-space:nowrap; box-sizing:border-box; height:20px; line-height:19px; padding:0 6px;}
 .button button {box-shadow:1px 2px 2px rgba(0,0,0,0.1); border:1px solid #888; background:#999; background:linear-gradient(#888,#999); border-radius:2px; color:#fff; display:inline-block; white-space:nowrap; box-sizing:border-box; height:20px; line-height:17px; padding:0 6px;}
@@ -27,25 +27,25 @@
 
 .button.ar button {width:20px; text-align:center;}
 
-.button.down button {background:url(/static/img/basic/ico_down.png) no-repeat 5px 5px #999; padding-left:20px;}
-.button.down button:hover {background:url(/static/img/basic/ico_down.png) no-repeat 5px 5px #555; padding-left:20px;}
-.btnWrap .button.down button {background:url(/static/img/basic/ico_down.png) no-repeat 7px 7px #999; padding-left:23px;}
-.btnWrap .button.down button:hover {background:url(/static/img/basic/ico_down.png) no-repeat 7px 7px #555; padding-left:23px;}
+.button.down button {background:url(/img/basic/ico_down.png) no-repeat 5px 5px #999; padding-left:20px;}
+.button.down button:hover {background:url(/img/basic/ico_down.png) no-repeat 5px 5px #555; padding-left:20px;}
+.btnWrap .button.down button {background:url(/img/basic/ico_down.png) no-repeat 7px 7px #999; padding-left:23px;}
+.btnWrap .button.down button:hover {background:url(/img/basic/ico_down.png) no-repeat 7px 7px #555; padding-left:23px;}
 
-.button.up button {background:url(/static/img/basic/ico_up.png) no-repeat 5px 5px #999; padding-left:20px;}
-.button.up button:hover {background:url(/static/img/basic/ico_up.png) no-repeat 5px 5px #555; padding-left:20px;}
-.btnWrap .button.up button {background:url(/static/img/basic/ico_up.png) no-repeat 7px 7px #999; padding-left:23px;}
-.btnWrap .button.up button:hover {background:url(/static/img/basic/ico_up.png) no-repeat 7px 7px #555; padding-left:23px;}
+.button.up button {background:url(/img/basic/ico_up.png) no-repeat 5px 5px #999; padding-left:20px;}
+.button.up button:hover {background:url(/img/basic/ico_up.png) no-repeat 5px 5px #555; padding-left:20px;}
+.btnWrap .button.up button {background:url(/img/basic/ico_up.png) no-repeat 7px 7px #999; padding-left:23px;}
+.btnWrap .button.up button:hover {background:url(/img/basic/ico_up.png) no-repeat 7px 7px #555; padding-left:23px;}
 
-.button.left button {background:url(/static/img/basic/ico_left.png) no-repeat 5px 5px #999; padding-left:20px;}
-.button.left button:hover {background:url(/static/img/basic/ico_left.png) no-repeat 5px 5px #555; padding-left:20px;}
-.btnWrap .button.left button {background:url(/static/img/basic/ico_left.png) no-repeat 7px 7px #999; padding-left:23px;}
-.btnWrap .button.left button:hover {background:url(/static/img/basic/ico_left.png) no-repeat 7px 7px #555; padding-left:23px;}
+.button.left button {background:url(/img/basic/ico_left.png) no-repeat 5px 5px #999; padding-left:20px;}
+.button.left button:hover {background:url(/img/basic/ico_left.png) no-repeat 5px 5px #555; padding-left:20px;}
+.btnWrap .button.left button {background:url(/img/basic/ico_left.png) no-repeat 7px 7px #999; padding-left:23px;}
+.btnWrap .button.left button:hover {background:url(/img/basic/ico_left.png) no-repeat 7px 7px #555; padding-left:23px;}
 
-.button.right button {background:url(/static/img/basic/ico_right.png) no-repeat 5px 5px #999; padding-left:20px;}
-.button.right button:hover {background:url(/static/img/basic/ico_right.png) no-repeat 5px 5px #555; padding-left:20px;}
-.btnWrap .button.right button {background:url(/static/img/basic/ico_right.png) no-repeat 7px 7px #999; padding-left:23px;}
-.btnWrap .button.right button:hover {background:url(/static/img/basic/ico_right.png) no-repeat 7px 7px #555; padding-left:23px;}
+.button.right button {background:url(/img/basic/ico_right.png) no-repeat 5px 5px #999; padding-left:20px;}
+.button.right button:hover {background:url(/img/basic/ico_right.png) no-repeat 5px 5px #555; padding-left:20px;}
+.btnWrap .button.right button {background:url(/img/basic/ico_right.png) no-repeat 7px 7px #999; padding-left:23px;}
+.btnWrap .button.right button:hover {background:url(/img/basic/ico_right.png) no-repeat 7px 7px #555; padding-left:23px;}
 
 .btnWrap .button a,
 .btnWrap .button button {height:24px; line-height:22px; padding:0 12px;}
@@ -67,7 +67,7 @@
 .button.disabled {opacity:0.5;}
 .button.ico {padding:0; background-color:#fff;}
 .button.ico a {padding:0; border:1px solid #fff; background-color:#fff;}
-.button.ico b {display:inline-block; box-sizing:border-box; width:18px; height:19px; background:url(/static/img/basic/btn.png) no-repeat #fff;}
+.button.ico b {display:inline-block; box-sizing:border-box; width:18px; height:19px; background:url(/img/basic/btn.png) no-repeat #fff;}
 .button.ico b.ico1 {background-position:-2px 0;}
 .button.ico b.ico2 {background-position:-23px 0;}
 .button.ico b.ico3 {background-position:-44px 0;}

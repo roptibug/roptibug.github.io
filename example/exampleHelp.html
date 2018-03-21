@@ -1,13 +1,49 @@
 <!DOCTYPE html>
 <html>
 <head>
-<jsp:include page="/WEB-INF/jsp/layout/head.jsp" />
+<title>ETBS</title>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta http-equiv="cache-control" content="no-cache" />
+<meta http-equiv="expires" content="0" />
+<meta http-equiv="pragma" content="no-cache" />
+<meta name="viewport" id="viewport" />
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta name="fragment" content="!" />
+<link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon" />
+<link rel="stylesheet" href="/css/etbs/etbs.css" type="text/css" />
+<script src="/js/lib/jquery/jquery-1.11.1.min.js"></script>
+<script src="/js/lib/jquery/jquery.mask.js"></script>
+<script src="/js/module/etbs.component.js"></script>
+<script src="/js/module/etbs.datePicker.js"></script>
+<script src="/js/module/etbs.validator.js"></script>
+<script src="/js/module/etbs.common.js"></script>
 </head>
 <body>
-<jsp:include page="/WEB-INF/jsp/layout/unit.jsp" />
+<div id="alert">
+	<div class="wrapper">
+		<div class="alert"></div>
+		<div class="btnWrap">
+			<span class="button confirm" onclick="etbs.alert.close(true)"><button type="button">확인</button></span>
+			<span class="button cancel" onclick="etbs.alert.close(false)"><button type="button">취소</button></span>
+		</div>
+	</div>
+</div>
+<div id="loading">
+	<div class="message">
+		<p>로딩중입니다.</p>
+	</div>
+	<div class="loader"></div>
+</div>
+<div id="validHelp">
+	<p>'이름'은 필수 입력값입니다</p>
+	<span class="arrow"></span>
+</div>
+<div id="dimmed" onclick="etbs.dimmed.close({target:'dimmed'})"></div>
+<div id="datePicker"></div>
+<div id="autoCompleteLayer" class="autoCompleteLayer"></div>
 <div id="container">
-	<jsp:include page="/WEB-INF/jsp/layout/header.jsp" />
-	<jsp:include page="/WEB-INF/jsp/layout/menu.jsp" />
 	<div id="wrapper">
 		<!-- wrapper -->
 
@@ -28,7 +64,7 @@
 
 		<!--// wrapper -->
 	</div>
-	<jsp:include page="/WEB-INF/jsp/layout/footer.jsp" />
+	
 </div>
 <!-- 말풍선 레이어영역 -->
 <jsp:include page="/WEB-INF/jsp/help/example/helpCoupon.jsp" /><!-- 쿠폰 -->
