@@ -12,21 +12,21 @@
 <meta name="description" content="" />
 <meta name="fragment" content="!" />
 <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon" />
-<link rel="stylesheet" href="/css/etbs/etbs.css" type="text/css" />
+<link rel="stylesheet" href="/css/rbug/rbug.css" type="text/css" />
 <script src="/js/lib/jquery/jquery-1.11.1.min.js"></script>
 <script src="/js/lib/jquery/jquery.mask.js"></script>
-<script src="/js/module/etbs.component.js"></script>
-<script src="/js/module/etbs.datePicker.js"></script>
-<script src="/js/module/etbs.validator.js"></script>
-<script src="/js/module/etbs.common.js"></script>
+<script src="/js/module/rbug.component.js"></script>
+<script src="/js/module/rbug.datePicker.js"></script>
+<script src="/js/module/rbug.validator.js"></script>
+<script src="/js/module/rbug.common.js"></script>
 </head>
 <body>
 <div id="alert">
 	<div class="wrapper">
 		<div class="alert"></div>
 		<div class="btnWrap">
-			<span class="button confirm" onclick="etbs.alert.close(true)"><button type="button">확인</button></span>
-			<span class="button cancel" onclick="etbs.alert.close(false)"><button type="button">취소</button></span>
+			<span class="button confirm" onclick="rbug.alert.close(true)"><button type="button">확인</button></span>
+			<span class="button cancel" onclick="rbug.alert.close(false)"><button type="button">취소</button></span>
 		</div>
 	</div>
 </div>
@@ -40,7 +40,7 @@
 	<p>'이름'은 필수 입력값입니다</p>
 	<span class="arrow"></span>
 </div>
-<div id="dimmed" onclick="etbs.dimmed.close({target:'dimmed'})"></div>
+<div id="dimmed" onclick="rbug.dimmed.close({target:'dimmed'})"></div>
 <div id="datePicker"></div>
 <div id="autoCompleteLayer" class="autoCompleteLayer"></div>
 <div id="container">
@@ -59,7 +59,7 @@
 		<span class="button popAddress" onclick="testPop1()"><button type="button">우편번호찾기</button></span>
 		<script>
 		function testPop1(){
-			etbs.popup({
+			rbug.popup({
 				target : 'popAddress',
 				width : 700,
 				height : 600,
@@ -71,7 +71,7 @@
 		<span class="button popCalendarAdd" onclick="testPop2()"><button type="button">휴일설정</button></span>
 		<script>
 		function testPop2(){
-			etbs.popup({
+			rbug.popup({
 				target :'popCalendarAdd',
 				width : 630,
 				height : 370,
@@ -83,7 +83,7 @@
 		<span class="button popCategory" onclick="testPop3()"><button type="button">관리분류 조회</button></span>
 		<script>
 		function testPop3(){
-			etbs.popup({
+			rbug.popup({
 				target :'popCategory',
 				width : 500,
 				height : 380,
@@ -95,7 +95,7 @@
 		<span class="button popCompany" onclick="testPop4()"><button type="button">사업자정보 확인</button></span>
 		<script>
 		function testPop4(){
-			etbs.popup({
+			rbug.popup({
 				target :'popCompany',
 				width : 400,
 				height : 200,
@@ -107,7 +107,7 @@
 		<span class="button popCompanyNone" onclick="testPop5()"><button type="button">사업자정보 확인 없음</button></span>
 		<script>
 		function testPop5(){
-			etbs.popup({
+			rbug.popup({
 				target :'popCompanyNone',
 				width : 400,
 				height : 200,
@@ -120,7 +120,7 @@
 		<span class="button popMemberHistory" onclick="testPop6()"><button type="button">회원등급이력</button></span>
 		<script>
 		function testPop6(){
-			etbs.popup({
+			rbug.popup({
 				target :'popMemberHistory',
 				width : 500,
 				height : 500,
@@ -132,7 +132,7 @@
 		<span class="button popMemberSearch" onclick="testPop7()"><button type="button">회원조회</button></span>
 		<script>
 		function testPop7(){
-			etbs.popup({
+			rbug.popup({
 				target :'popMemberSearch',
 				width : 500,
 				height : 500,
@@ -144,7 +144,7 @@
 		<span class="button popSelect" onclick="testPop8()"><button type="button">선택팝업</button></span>
 		<script>
 		function testPop8(){
-			etbs.popup({
+			rbug.popup({
 				target :'popSelect',
 				width : 300,
 				height : 350,
@@ -163,7 +163,7 @@
 		<span class="button" onclick="popGiftLogDetail()"><button type="button">기프티콘 로그 상세</button></span>
 		<script>
 		function popGiftLogDetail(){
-			etbs.wpopup({
+			rbug.wpopup({
 				target : 'popGiftLogDetail',
 				url : '/popup/example/popGiftLogDetail',
 				width : 800,
@@ -174,7 +174,7 @@
 				height : 700,
 				callback : function(e){
 					console.log(e);
-					console.log(etbs.wpopup.popGiftLogDetail);
+					console.log(rbug.wpopup.popGiftLogDetail);
 				}
 			});
 		}
@@ -183,7 +183,7 @@
 		<span class="button" onclick="popMember()"><button type="button">회원조회</button></span>
 		<script>
 		function popMember(){
-			etbs.wpopup({
+			rbug.wpopup({
 				target : 'popMember',
 				url : '/popup/example/popMember',
 				width : 600,
@@ -191,7 +191,7 @@
 				height : 700,
 				callback : function(e){
 					console.log(e);
-					console.log(etbs.wpopup.popMember);
+					console.log(rbug.wpopup.popMember);
 				}
 			});
 		}

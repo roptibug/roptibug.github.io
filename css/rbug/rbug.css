@@ -206,12 +206,12 @@ ul.color li {width:10px; height:10px; float:left;}
 /**********************
 	help : 말풍선
 **********************/
-span.etbsHelp {cursor:pointer; z-index:800; display:inline-block; width:19px; height:19px; margin:-3px 0 0 3px; vertical-align:middle; border-radius:100%; background:url(/img/basic/icon_help.png) no-repeat -1px -1px #fff; box-sizing:border-box; border:1px solid #999;}
-span.etbsHelp.noicon {cursor:pointer; display:inline-block;  width:auto; height:auto; margin:0; border-radius:none; background:none; border:0;}
-div.etbsHelp {position:absolute; z-index:800; padding:5px 10px; display:none; left:300px; top:300px; width:200px; height:100px; background:#fffde7; border:1px solid #333;}
+span.rbugHelp {cursor:pointer; z-index:800; display:inline-block; width:19px; height:19px; margin:-3px 0 0 3px; vertical-align:middle; border-radius:100%; background:url(/img/basic/icon_help.png) no-repeat -1px -1px #fff; box-sizing:border-box; border:1px solid #999;}
+span.rbugHelp.noicon {cursor:pointer; display:inline-block;  width:auto; height:auto; margin:0; border-radius:none; background:none; border:0;}
+div.rbugHelp {position:absolute; z-index:800; padding:5px 10px; display:none; left:300px; top:300px; width:200px; height:100px; background:#fffde7; border:1px solid #333;}
 
-div.etbsLayer {position:absolute; z-index:800; padding:5px 10px; display:none; left:300px; top:300px; width:200px; height:100px; background:#fff; border:1px solid #333;}
-div.etbsLayer .close{position:absolute; right:10px; top:3px;}
+div.rbugLayer {position:absolute; z-index:800; padding:5px 10px; display:none; left:300px; top:300px; width:200px; height:100px; background:#fff; border:1px solid #333;}
+div.rbugLayer .close{position:absolute; right:10px; top:3px;}
 
 #validHelp {position:absolute; display:none; white-space:nowrap; min-width:100px; z-index:1100; padding:0 10px 0 33px; line-height:30px; white-space:nowrap; color:#333; left:100px; top:85px; border:1px solid #fc362f; background:url(/img/basic/icon_error.png) no-repeat 9px 7px #fffeea; box-sizing:border-box;}
 #validHelp .arrow {position:absolute; left:13px; top:-5px; width:11px; height:5px; display:block; background:url(/img/basic/ico_help_arrow.png) no-repeat; background-color:transparent;}

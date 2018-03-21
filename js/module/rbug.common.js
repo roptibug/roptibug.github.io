@@ -1,7 +1,7 @@
 /**
- * @etbs.common
+ * @rbug.common
  * 1. XMLHttpRequest Interceptor (Request[0].finish 처리)
- * 2. 각 공통 컴포넌트 기본 실행(etbs.component.js 참고, 사용법은 개발가이드-백오피스.html 확인)
+ * 2. 각 공통 컴포넌트 기본 실행(rbug.component.js 참고, 사용법은 개발가이드-백오피스.html 확인)
  */
 (function(XHR){
 	'use strict';
@@ -13,7 +13,7 @@
     var requestCount = 0
     XHR.prototype.open = function(method, url, async, user, pass){
     	if(async){
-    		etbs.loading.start();
+    		rbug.loading.start();
     	}
     	requestCount++;
         this._url = url;
@@ -35,7 +35,7 @@
         		responseCount++;
         		if(requestCount == responseCount){
         			if(self.status == 600){
-                    	etbs.alert.open({
+                    	rbug.alert.open({
             				target : 'error',
             				message : '세션이 만료되었습니다.',
             				callback : function(){
@@ -50,16 +50,16 @@
         					var response = $.parseJSON(self.response);
                     		message = response.message || message;
 						} catch (e) {}
-                    	etbs.alert.open({
+                    	rbug.alert.open({
             				target : 'error',
             				message : message
             			});
                     }
-        			etbs.loading.stop();
+        			rbug.loading.stop();
         		}
         	}
         	if(url.indexOf('.json') > 0){ //ie7 에서 테스트로 사용하는 static폴더내 '.json' 파일이 동기로 간주됨
-        		etbs.loading.stop();
+        		rbug.loading.stop();
         	}
             if(oldOnReadyStateChange){ //ie7,8를 위한 조건
                 oldOnReadyStateChange();
@@ -78,44 +78,44 @@
 $(function(){
 	'use strict';
 	//달력선택레이어(공통 - commonDatePicker 별도  클래스 선언가능)
-	etbs.datePicker({
+	rbug.datePicker({
 		element : $('span.commonDatePicker'),
 		callback : function(e){}
 	});
 	//말풍선 (tooltip)
-	etbs.help({
-		element : $('span.etbsHelp')
+	rbug.help({
+		element : $('span.rbugHelp')
 	});
 	//색상표
-	etbs.helpColor({
-		element : $('span.etbsHelpColor'), //(필수)버튼
+	rbug.helpColor({
+		element : $('span.rbugHelpColor'), //(필수)버튼
 		inputElement : $('div.helpColorInput'),
 		target : $('.targetColor'),
 		callback : function(){}
 	});
 	//test
-	etbs.test({
+	rbug.test({
 		element : $('#guide'),
 		close : $('#guide .close')
 	});
 	//탑,좌측메뉴(즐겨찾기)
-	etbs.menu({
+	rbug.menu({
 		element : $('div#menu')
 	});
 	//textarea,input 등등 byte체크
-	etbs.byteChecker({
+	rbug.byteChecker({
 		element : $('.byteChecker')
 	});
 	//textarea,input 등등 글자수 체크
-	etbs.lengthChecker({
+	rbug.lengthChecker({
 		element : $('.lengthChecker')
 	});
 	//toggle slide
-	etbs.slide({
-		element : $('b.etbsSlide')
+	rbug.slide({
+		element : $('b.rbugSlide')
 	});
 	//브라우져 hack.css
-	if(etbs.browser.ie7){
+	if(rbug.browser.ie7){
 		$('body').addClass('ie7')
 	}
 	//table 정렬

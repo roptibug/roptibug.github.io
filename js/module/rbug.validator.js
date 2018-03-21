@@ -1,11 +1,11 @@
 /**
- * @etbs.validator
+ * @rbug.validator
  * 1. 폼 유효성 검사시 유효하지 않은 경우 경고 말풍선을 띄운다. (help)
  * 2. submit 을 이용하여 직관적으로 콜백에 담는다. (exampleValidation.jsp 참고)
  */
 (function(){
 	'use strict';
-	etbs.validator = {
+	rbug.validator = {
 		/**
 		 * @validator.help : 유효하지 않을 경우 경고말풍선이 나타남
 		 */
@@ -27,7 +27,7 @@
 				marginX = (posX + 30 < overSize) ? 0 : (parseInt(settings.input.width()) + 20);
 
 			if(posX == 0 && posY == 26){ //hidden input 해당할때
-				etbs.alert.open({message : settings.message});
+				rbug.alert.open({message : settings.message});
 				return;
 			}
 			settings.element.css({'left':posX,'top':posY}).fadeIn(settings.speed);
@@ -50,7 +50,7 @@
 			settings = $.extend(base, settings);
 			settings.element.submit(function(e){
 				e.preventDefault();
-				if(etbs.validator.validate(settings.element[0])){
+				if(rbug.validator.validate(settings.element[0])){
 					settings.callback(true);
 				}else{
 					settings.callback(false);
@@ -64,7 +64,7 @@
 				var j = $(this);
 				var vrs = j.attr('data-valid');
 				var overMessage = j.attr('data-message');
-				var rs = etbs.validator.parseInlineVrs(vrs);
+				var rs = rbug.validator.parseInlineVrs(vrs);
 				for(var n in rs){
 					if(n != 'label'){
 						var param = rs[n];
@@ -74,13 +74,13 @@
 						if(j.is(':disabled')){
 							return true;
 						}
-						var result = etbs.validator.rules[n].check.call(etbs.validator, j.val(), this, param);
+						var result = rbug.validator.rules[n].check.call(rbug.validator, j.val(), this, param);
 						if(result != true){
-							var message = '\'' + rs['label'] + '\' ' + etbs.validator.formatMessage(etbs.validator.rules[n].msg, param);
+							var message = '\'' + rs['label'] + '\' ' + rbug.validator.formatMessage(rbug.validator.rules[n].msg, param);
 							if(overMessage){
 								message = overMessage;
 							}
-							etbs.validator.help({
+							rbug.validator.help({
 								input : j,
 								message : message
 							});
@@ -105,8 +105,8 @@
 					var rr = r.split(':');
 					var ruleName = $.trim(rr[0]);
 					var ruleValue = $.trim(rr[1]);
-					if(etbs.validator.rules[ruleName] && etbs.validator.rules[ruleName].argc > 1){
-						var ruleValueCount = etbs.validator.rules[ruleName].argc;
+					if(rbug.validator.rules[ruleName] && rbug.validator.rules[ruleName].argc > 1){
+						var ruleValueCount = rbug.validator.rules[ruleName].argc;
 						// XXX 이거 뭐냐 이상해
 						// var multiRuleValue = ruleValue.split(new RegExp(' +', 'g'), ruleValueCount);
 						var multiRuleValue = ruleValue.split(',', ruleValueCount);
@@ -157,7 +157,7 @@
 			case 'select':
 				return $('option:selected', element).length;
 			case 'input':
-				if( etbs.validator.checkable( element) ){
+				if( rbug.validator.checkable( element) ){
 					return $(element).filter(':checked').length;
 				}
 			}
@@ -175,8 +175,8 @@
 			return ibyte;
 		},
 		depend: function(param, element){
-			return etbs.validator.dependTypes[typeof param]
-				? etbs.validator.dependTypes[typeof param](param, element)
+			return rbug.validator.dependTypes[typeof param]
+				? rbug.validator.dependTypes[typeof param](param, element)
 				: true;
 		},
 		dependTypes: {
@@ -197,7 +197,7 @@
 			return /radio|checkbox/i.test(element.type);
 		},
 		optional: function(element){
-			return !etbs.validator.rules.required.check.call(etbs.validator, $.trim(element.value), element);
+			return !rbug.validator.rules.required.check.call(rbug.validator, $.trim(element.value), element);
 		},
 		rules: {
 			required: {
@@ -214,7 +214,7 @@
 					}
 					// FIXME depend 버그 있음
 					// check if dependency is met
-//					if( !etbs.validator.depend(param, element) ){
+//					if( !rbug.validator.depend(param, element) ){
 //						return false;
 //					}
 					switch( element.nodeName.toLowerCase() ){
@@ -225,7 +225,7 @@
 						}
 						return val && val.length > 0;
 					case 'input':
-						if( etbs.validator.checkable(element) ) {
+						if( rbug.validator.checkable(element) ) {
 							return $(this.currentForm).find('[name='+element.name+']:checked').size() > 0;
 						}
 					default:
@@ -237,35 +237,35 @@
 				argc: 1,
 				msg: '올바른 이메일 형식으로 입력하세요.',
 				check: function(value, element, param){
-					return etbs.validator.optional(element) || /^((([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+(\.([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+)*)|((\x22)((((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(([\x01-\x08\x0b\x0c\x0e-\x1f\x7f]|\x21|[\x23-\x5b]|[\x5d-\x7e]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(\\([\x01-\x09\x0b\x0c\x0d-\x7f]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))))*(((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(\x22)))@((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?$/i.test(value);
+					return rbug.validator.optional(element) || /^((([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+(\.([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+)*)|((\x22)((((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(([\x01-\x08\x0b\x0c\x0e-\x1f\x7f]|\x21|[\x23-\x5b]|[\x5d-\x7e]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(\\([\x01-\x09\x0b\x0c\x0d-\x7f]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))))*(((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(\x22)))@((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?$/i.test(value);
 				}
 			},
 			url: {
 				argc: 1,
 				msg: '올바른 URL 형식으로 입력하세요.',
 				check: function(value, element, param){
-					return etbs.validator.optional(element) || /^(https?|ftp):\/\/(((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:)*@)?(((\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5]))|((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?)(:\d*)?)(\/((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)+(\/(([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)*)*)?)?(\?((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|[\uE000-\uF8FF]|\/|\?)*)?(\#((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|\/|\?)*)?$/i.test(value);
+					return rbug.validator.optional(element) || /^(https?|ftp):\/\/(((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:)*@)?(((\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5]))|((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?)(:\d*)?)(\/((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)+(\/(([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)*)*)?)?(\?((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|[\uE000-\uF8FF]|\/|\?)*)?(\#((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|\/|\?)*)?$/i.test(value);
 				}
 			},
 			date: {
 				argc: 1,
 				msg: '올바른 날짜 형식으로 입력하세요.',
 				check: function(value, element, param){
-					return etbs.validator.optional(element) || /^\d{4}[\/-]\d{1,2}[\/-]\d{1,2}$/.test(value);
+					return rbug.validator.optional(element) || /^\d{4}[\/-]\d{1,2}[\/-]\d{1,2}$/.test(value);
 				}
 			},
 			number: {
 				argc: 1,
 				msg: '올바른 숫자 형식으로 입력하세요.',
 				check: function(value, element, param){
-					return etbs.validator.optional(element) || /^-?(?:\d+|\d{1,3}(?:,\d{3})+)(?:\.\d+)?$/.test(value);
+					return rbug.validator.optional(element) || /^-?(?:\d+|\d{1,3}(?:,\d{3})+)(?:\.\d+)?$/.test(value);
 				}
 			},
 			digit: {
 				argc: 1,
 				msg: '올바른 정수 형식으로 입력하세요',
 				check: function(value, element, param){
-					return etbs.validator.optional(element) || /^\d+$/.test(value);
+					return rbug.validator.optional(element) || /^\d+$/.test(value);
 				}
 			},
 			equal: {
@@ -282,79 +282,79 @@
 				argc: 1,
 				msg: '{0} 이상의 값을 입력하세요.',
 				check: function(value, element, param){
-					return etbs.validator.optional(element) || value >= param;
+					return rbug.validator.optional(element) || value >= param;
 				}
 			},
 			max: {
 				argc: 1,
 				msg: '{0} 이하의 값을 입력하세요.',
 				check: function(value, element, param){
-					return etbs.validator.optional(element) || value <= param;
+					return rbug.validator.optional(element) || value <= param;
 				}
 			},
 			range: {
 				argc: 2,
 				msg: '{0} ~ {1} 사이의 값을 입력하세요.',
 				check: function(value, element, param){
-					return etbs.validator.optional(element) || ( value >= param[0] && value <= param[1] );
+					return rbug.validator.optional(element) || ( value >= param[0] && value <= param[1] );
 				}
 			},
 			equallength: {
 				argc: 1,
 				msg: '길이가 {0}인 값을 입력하세요.',
 				check: function(value, element, param){
-					return etbs.validator.optional(element) || etbs.validator.getLength($.trim(value), element) == param;
+					return rbug.validator.optional(element) || rbug.validator.getLength($.trim(value), element) == param;
 				}
 			},
 			minlength: {
 				argc: 1,
 				msg: '{0}자 이상의 값을 입력하세요.',
 				check: function(value, element, param){
-					return etbs.validator.optional(element) || etbs.validator.getLength($.trim(value), element) >= param;
+					return rbug.validator.optional(element) || rbug.validator.getLength($.trim(value), element) >= param;
 				}
 			},
 			maxlength: {
 				argc: 1,
 				msg: '{0}자 이하의 값을 입력하세요.',
 				check: function(value, element, param){
-					return etbs.validator.optional(element) || etbs.validator.getLength($.trim(value), element) <= param;
+					return rbug.validator.optional(element) || rbug.validator.getLength($.trim(value), element) <= param;
 				}
 			},
 			rangelength: {
 				argc: 2,
 				msg: '{0}자 ~ {1}자 사이의 값을 입력하세요.',
 				check: function(value, element, param){
-					var length = etbs.validator.getLength($.trim(value), element);
-					return etbs.validator.optional(element) || ( length >= param[0] && length <= param[1] );
+					var length = rbug.validator.getLength($.trim(value), element);
+					return rbug.validator.optional(element) || ( length >= param[0] && length <= param[1] );
 				}
 			},
 			minbytes: {
 				argc: 1,
 				msg: '{0} Byte 이상의 값을 입력하세요.',
 				check: function(value, element, param){
-					return etbs.validator.optional(element) || etbs.validator.getByteLength($.trim(value), element) >= param;
+					return rbug.validator.optional(element) || rbug.validator.getByteLength($.trim(value), element) >= param;
 				}
 			},
 			maxbytes: {
 				argc: 1,
 				msg: '{0} Byte 이하의 값을 입력하세요.',
 				check: function(value, element, param){
-					return etbs.validator.optional(element) || etbs.validator.getByteLength($.trim(value), element) <= param;
+					return rbug.validator.optional(element) || rbug.validator.getByteLength($.trim(value), element) <= param;
 				}
 			},
 			rangebytes: {
 				argc: 2,
 				msg: '{0} Byte ~ {1} Byte 사이의 값을 입력하세요.',
 				check: function(value, element, param){
-					var length = etbs.validator.getByteLength($.trim(value), element);
-					return etbs.validator.optional(element) || ( length >= param[0] && length <= param[1] );
+					var length = rbug.validator.getByteLength($.trim(value), element);
+					return rbug.validator.optional(element) || ( length >= param[0] && length <= param[1] );
 				}
 			},
 			xss: {
 				argc: 1,
 				msg: '특수문자는 입력할 수 없습니다.',
 				check: function(value, element, param){
-					if( !etbs.validator.checkable(element) ){
+					if( !rbug.validator.checkable(element) ){
 						var val = $(element).val();
 						var re = /\<|\>|\'|\'|\%|\;|\(|\)|\&|\+|alert+|script+|javascript+|document\.+|\.cookie+|xss\:+|\:expression|style\=+|background\:+/g;
 						if(val.match(re) ){
@@ -369,7 +369,7 @@
 				argc: 1,
 				msg: '특수문자는 입력할 수 없습니다.',
 				check: function(value, element, param){
-					if( !etbs.validator.checkable(element) ){
+					if( !rbug.validator.checkable(element) ){
 						var val = $(element).val();
 						var re = /\<|\>|\'|\'|\%|\;|\&|\+|alert+|script+|javascript+|document\.+|\.cookie+|xss\:+|\:expression|style\=+|background\:+/g;
 						if(val.match(re) ){
@@ -384,7 +384,7 @@
 				argc: 1,
 				msg: '특수문자는 입력할 수 없습니다.',
 				check: function(value, element, param){
-					if( !etbs.validator.checkable(element) ){
+					if( !rbug.validator.checkable(element) ){
 						var val = $(element).val();
 						var re = /^([0-9A-Za-zㄱ-ㅎ가-힣]|\_|\s|\/|\(|\)|\.|\:)+$/;
 						if(!val.match(re) ){

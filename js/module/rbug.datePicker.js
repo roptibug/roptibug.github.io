@@ -1,17 +1,17 @@
 /**
- * @etbs.datePicker
+ * @rbug.datePicker
  * 1.(선택)은 사용자 임의로 설정할수 있음
  * 2.(필수)는 사용자가 반드시 설정해야함
  * 3.(공통)은 기능수정 또는 html 수정을 해야함
- * 4.etbs.alert & etbs.loading & etbs.dimmed 필요
+ * 4.rbug.alert & rbug.loading & rbug.dimmed 필요
  */
 (function(){
 	"use strict";
 	/**
-	 * @etbs.datePicker
+	 * @rbug.datePicker
 	 * 날짜포맷 설정
 	 */
-	etbs.datePicker = function(settings){
+	rbug.datePicker = function(settings){
 		var base = {
 			element : null, 			//(필수)화면당 중복되지 않는 id를 준다. 예) $('#id')
 			layer : $('div#datePicker'),//(공통)레이어는 하나만 존재
@@ -85,7 +85,7 @@
 			},
 			endSettings : function(){
 				if(this.id){
-					etbs.datePicker[this.id] = this;
+					rbug.datePicker[this.id] = this;
 				}
 				this.callback();
 			},
@@ -107,11 +107,11 @@
 				this.layer.css({left : posx, top : posy});
 				//레이어 열기
 				this.layer.show();
-				etbs.dimmed.open({target:'datePicker',transparent:true}); //딤투명처리
+				rbug.dimmed.open({target:'datePicker',transparent:true}); //딤투명처리
 			},
 			close : function(){ //(선택)달력닫기
 				this.layer.hide();
-				etbs.dimmed.close({target:'datePicker'});
+				rbug.dimmed.close({target:'datePicker'});
 			},
 			firstDay : function(year, month){ //(공통)첫째 날짜,요일
 				return new Date(year, month, 1).getDay();
@@ -161,7 +161,7 @@
 		//global
 		settings.id = settings.element.attr('id');
 		if(settings.id){
-			etbs.datePicker[settings.id] = settings;
+			rbug.datePicker[settings.id] = settings;
 		}
 		settings.format = settings.element.attr('data-format');
 		if(!settings.format){
@@ -350,7 +350,7 @@
 				}
 				obj.setDate($(this).text());
 				if(settings.start.date > settings.end.date && settings.dual){
-					etbs.alert.open({message:'시작 날짜는 종료 날짜 이후로 설정할 수 없습니다.'});
+					rbug.alert.open({message:'시작 날짜는 종료 날짜 이후로 설정할 수 없습니다.'});
 					obj.setDate(dummyObj.getDate());
 					return;
 				}else{
@@ -417,18 +417,18 @@
 			if(settings.layer.find('.on.disabled').length > 0){
 				settings.fail = true;
 				if(settings.id == "drawDatePicker" ){
-					etbs.alert.open({message:'추첨일시는 응모기간보다 빠를 수 없습니다.다른 날짜를 선택해주세요.'});
+					rbug.alert.open({message:'추첨일시는 응모기간보다 빠를 수 없습니다.다른 날짜를 선택해주세요.'});
 				}else if(settings.id == "winDatePicker" ){
-					etbs.alert.open({message:'당첨 발표일시는 추첨일시보다 빠를 수 없습니다.다른 날짜를 선택해주세요.'});
+					rbug.alert.open({message:'당첨 발표일시는 추첨일시보다 빠를 수 없습니다.다른 날짜를 선택해주세요.'});
 				}else{
-					etbs.alert.open({message:'입력 불가능한 날짜입니다. 다른 날짜를 선택해주세요.'});
+					rbug.alert.open({message:'입력 불가능한 날짜입니다. 다른 날짜를 선택해주세요.'});
 				}
 			}else{
 				settings.fail = false;
 			}
 		}
 		/**
-		 * @etbs.datePicker
+		 * @rbug.datePicker
 		 * 클릭후 레이어를 초기하며 달력을 그린다.
 		 */
 		settings.element.find('.btnDatePicker').click(function(event){
@@ -507,7 +507,7 @@
 				settings.start.date.setFullYear($(this).val());
 				setCalendar(settings.start.date,startCon);
 				if(settings.start.date > settings.end.date && settings.dual){
-					etbs.alert.open({message:'시작 날짜는 종료 날짜 이후로 설정할 수 없습니다.'});
+					rbug.alert.open({message:'시작 날짜는 종료 날짜 이후로 설정할 수 없습니다.'});
 					settings.fail = true;
 					//settings.start.date.setFullYear(settings.start.dummy.getFullYear());
 					//setCalendar(settings.start.date,startCon);
@@ -519,7 +519,7 @@
 				settings.start.date.addMonths($(this).val() - (settings.start.date.getMonth() + 1));
 				setCalendar(settings.start.date,startCon);
 				if(settings.start.date > settings.end.date && settings.dual){
-					etbs.alert.open({message:'시작 날짜는 종료 날짜 이후로 설정할 수 없습니다.'});
+					rbug.alert.open({message:'시작 날짜는 종료 날짜 이후로 설정할 수 없습니다.'});
 					settings.start.date.setMonth(settings.start.dummy.getMonth());
 					setCalendar(settings.start.date,startCon);
 					return;
@@ -530,7 +530,7 @@
 				settings.start.date.setHours($(this).val());
 				setCalendar(settings.start.date,startCon);
 				if(settings.start.date > settings.end.date && settings.dual){
-					etbs.alert.open({message:'시작 날짜는 종료 날짜 이후로 설정할 수 없습니다.'});
+					rbug.alert.open({message:'시작 날짜는 종료 날짜 이후로 설정할 수 없습니다.'});
 					settings.start.date.setHours(settings.start.dummy.getHours());
 					setCalendar(settings.start.date,startCon);
 					return;
@@ -541,7 +541,7 @@
 				settings.start.date.setMinutes($(this).val());
 				setCalendar(settings.start.date,startCon);
 				if(settings.start.date > settings.end.date && settings.dual){
-					etbs.alert.open({message:'시작 날짜는 종료 날짜 이후로 설정할 수 없습니다.'});
+					rbug.alert.open({message:'시작 날짜는 종료 날짜 이후로 설정할 수 없습니다.'});
 					settings.start.date.setMinutes(settings.start.dummy.getMinutes());
 					setCalendar(settings.start.date,startCon);
 					return;
@@ -573,7 +573,7 @@
 				settings.end.date.setFullYear($(this).val());
 				setCalendar(settings.end.date,endCon);
 				if(settings.start.date > settings.end.date && settings.dual){
-					etbs.alert.open({message:'종료 날짜는 시작 날짜 이전으로 설정할 수 없습니다.'});
+					rbug.alert.open({message:'종료 날짜는 시작 날짜 이전으로 설정할 수 없습니다.'});
 					settings.fail = true;
 					//settings.end.date.setFullYear(settings.end.dummy.getFullYear());
 					//setCalendar(settings.end.date,endCon);
@@ -585,7 +585,7 @@
 				settings.end.date.addMonths($(this).val() - (settings.end.date.getMonth() + 1));
 				setCalendar(settings.end.date,endCon);
 				if(settings.start.date > settings.end.date && settings.dual){
-					etbs.alert.open({message:'종료 날짜는 시작 날짜 이전으로 설정할 수 없습니다.'});
+					rbug.alert.open({message:'종료 날짜는 시작 날짜 이전으로 설정할 수 없습니다.'});
 					settings.end.date.setMonth(settings.end.dummy.getMonth());
 					setCalendar(settings.end.date,endCon);
 					return;
@@ -596,7 +596,7 @@
 				settings.end.date.setHours($(this).val());
 				setCalendar(settings.end.date,endCon);
 				if(settings.start.date > settings.end.date && settings.dual){
-					etbs.alert.open({message:'시작 날짜는 종료 날짜 이후로 설정할 수 없습니다.'});
+					rbug.alert.open({message:'시작 날짜는 종료 날짜 이후로 설정할 수 없습니다.'});
 					settings.end.date.setHours(settings.end.dummy.getHours());
 					setCalendar(settings.end.date,endCon);
 					return;
@@ -607,7 +607,7 @@
 				settings.end.date.setMinutes($(this).val());
 				setCalendar(settings.end.date,endCon);
 				if(settings.start.date > settings.end.date && settings.dual){
-					etbs.alert.open({message:'시작 날짜는 종료 날짜 이후로 설정할 수 없습니다.'});
+					rbug.alert.open({message:'시작 날짜는 종료 날짜 이후로 설정할 수 없습니다.'});
 					settings.end.date.setMinutes(settings.end.dummy.getMinutes());
 					setCalendar(settings.end.date,endCon);
 					return;
@@ -624,11 +624,11 @@
 			settings.layer.find('.confirm').click(function(){
 				if(settings.fail){
 					if(settings.id == "drawDatePicker" ){
-						etbs.alert.open({message:'추첨일시는 응모기간보다 빠를 수 없습니다.다른 날짜를 선택해주세요.'});
+						rbug.alert.open({message:'추첨일시는 응모기간보다 빠를 수 없습니다.다른 날짜를 선택해주세요.'});
 					}else if(settings.id == "winDatePicker" ){
-						etbs.alert.open({message:'당첨 발표일시는 추첨일시보다 빠를 수 없습니다.다른 날짜를 선택해주세요.'});
+						rbug.alert.open({message:'당첨 발표일시는 추첨일시보다 빠를 수 없습니다.다른 날짜를 선택해주세요.'});
 					}else{
-						etbs.alert.open({message:'입력 불가능한 날짜입니다. 다른 날짜를 선택해주세요.'});
+						rbug.alert.open({message:'입력 불가능한 날짜입니다. 다른 날짜를 선택해주세요.'});
 					}
 					return;
 				}
