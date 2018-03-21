@@ -1,6 +1,70 @@
-<a href="example/exampleAlert.html">exampleAlert.html</a>
-<a href="example/exampleAlert.html">exampleAlert.html</a>
-<a href="example/exampleAlert.html">exampleAlert.html</a>
-<a href="example/exampleAlert.html">exampleAlert.html</a>
-<a href="example/exampleAlert.html">exampleAlert.html</a>
-<a href="example/exampleAlert.html">exampleAlert.html</a>
+<!DOCTYPE html>
+<html>
+<head>
+<title>RBUG</title>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta http-equiv="cache-control" content="no-cache" />
+<meta http-equiv="expires" content="0" />
+<meta http-equiv="pragma" content="no-cache" />
+<meta name="viewport" id="viewport" />
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta name="fragment" content="!" />
+<link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon" />
+<link rel="stylesheet" href="/css/rbug/rbug.css" type="text/css" />
+<script src="/js/lib/jquery/jquery-1.11.1.min.js"></script>
+<script src="/js/lib/jquery/jquery.mask.js"></script>
+<script src="/js/module/rbug.component.js"></script>
+<script src="/js/module/rbug.datePicker.js"></script>
+<script src="/js/module/rbug.validator.js"></script>
+<script src="/js/module/rbug.common.js"></script>
+</head>
+<body>
+
+<div id="alert">
+	<div class="wrapper">
+		<div class="alert"></div>
+		<div class="btnWrap">
+			<span class="button confirm" onclick="rbug.alert.close(true)"><button type="button">확인</button></span>
+			<span class="button cancel" onclick="rbug.alert.close(false)"><button type="button">취소</button></span>
+		</div>
+	</div>
+</div>
+<div id="loading">
+	<div class="message">
+		<p>로딩중입니다.</p>
+	</div>
+	<div class="loader"></div>
+</div>
+<div id="validHelp">
+	<p>'이름'은 필수 입력값입니다</p>
+	<span class="arrow"></span>
+</div>
+<div id="dimmed" onclick="rbug.dimmed.close({target:'dimmed'})"></div>
+<div id="datePicker"></div>
+<div id="autoCompleteLayer" class="autoCompleteLayer"></div>
+
+<div id="header">
+	<h1>rbug</h1>
+	<ul>
+		<li><a href="example/exampleAlert.html">exampleAlert.html</a><li>
+		<li><a href="example/exampleAlert.html">exampleAlert.html</a><li>
+		<li><a href="example/exampleAlert.html">exampleAlert.html</a><li>
+		<li><a href="example/exampleAlert.html">exampleAlert.html</a><li>
+		<li><a href="example/exampleAlert.html">exampleAlert.html</a><li>
+		<li><a href="example/exampleAlert.html">exampleAlert.html</a><li>
+	</ul>
+</div>
+<div id="container">
+	
+	
+	
+</div>
+<div id="footer">
+	<p>Copyright © 2018 rbug. All Rights Reserved.</p>
+</div>
+
+</body>
+</html>
+
