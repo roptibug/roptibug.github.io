@@ -1,10 +1,10 @@
 /**
- * @etbs.component
- * 1. etbs 전역변수 = container (모든 컴포넌트를 담는다.) 관련 기능의 모듈 주석에는 '@'를 추가한다.
+ * @rbug.component
+ * 1. rbug 전역변수 = container (모든 컴포넌트를 담는다.) 관련 기능의 모듈 주석에는 '@'를 추가한다.
  * 2. 모든 컴포넌트 플러그인은 선택옵션과 필수옵션을 받아 기본옵션을 덮는다. ($.extend 사용)
- * 3. etbs.common.js 에서 플러그인을 공통으로 실행시키지만 별도 사용시 class 또는 id 로 분기하여 각화면별 구현한다.
+ * 3. rbug.common.js 에서 플러그인을 공통으로 실행시키지만 별도 사용시 class 또는 id 로 분기하여 각화면별 구현한다.
  */
-var etbs = {};
+var rbug = {};
 (function(){
 	'use strict';
 	/**
@@ -44,7 +44,7 @@ var etbs = {};
 	/**
 	 * @modules module 에 담아 controller에서 사용한다.(local변수 사용시)
 	 */
-	etbs = {
+	rbug = {
 		modules : {},
 		controller : function(target){
 			var FN_ARGS = /^function\s*[^\(]*\(\s*([^\)]*)\)/m,
@@ -73,7 +73,7 @@ var etbs = {};
 	/**
 	 * @help : 말풍선 아이콘에 마우스 올렸을때 레이어 나타나는 기능
 	 */
-	etbs.help = function(settings){
+	rbug.help = function(settings){
 		var base = {
 			element : null, //(필수)아이콘
 			target : null, 	//(필수)대상 레이어
@@ -102,9 +102,9 @@ var etbs = {};
 	/**
 	 * @helpColor : 말풍선 아이콘에 마우스 올렸을때 레이어 나타나는 기능
 	 */
-	/*etbs.helpColor = function(settings){
+	/*rbug.helpColor = function(settings){
 		var base = {
-			element : $('span.etbsHelpColor'), //(필수)버튼
+			element : $('span.rbugHelpColor'), //(필수)버튼
 			layer : $('div.helpColor'), 	//(필수)대상 레이어
 			target : $('.targetColor'),
 			inputElement : $('.helpColorInput'),
@@ -116,7 +116,7 @@ var etbs = {};
 		}
 		settings.element.click(function(){
 			settings.layer.show();
-			etbs.dimmed.open({target : 'helpColor',transparent : true});
+			rbug.dimmed.open({target : 'helpColor',transparent : true});
 			var posX = $(this).offset().left,
 				posY = $(this).offset().top + 17;
 			settings.layer.css({'left':posX,'top':posY})
@@ -127,14 +127,14 @@ var etbs = {};
 			settings.layer.find('.color li').click(function(){
 				var color = $(this).attr('data-color');
 				settings.inputElement.val(color);
-				etbs.dimmed.open({target : 'helpColor'});
+				rbug.dimmed.open({target : 'helpColor'});
 				settings.layer.hide();
 			});
 		});
 	}*/
-	etbs.helpColor = function(settings){
+	rbug.helpColor = function(settings){
 		var base = {
-			element : $('span.etbsHelpColor'), //(필수)버튼
+			element : $('span.rbugHelpColor'), //(필수)버튼
 			layer : $('div.helpColor'), 	//(필수)대상 레이어
 			target : $('.targetColor'),
 			inputElement : $('.helpColorInput'),
@@ -152,7 +152,7 @@ var etbs = {};
 		settings.element.click(function(){
 			$this = $(this);
 			settings.layer.show();
-			etbs.dimmed.open({target : 'helpColor',transparent : true});
+			rbug.dimmed.open({target : 'helpColor',transparent : true});
 
 			var posX = $this.offset().left,
 				posY = $this.offset().top + 17;
@@ -167,17 +167,17 @@ var etbs = {};
 		settings.layer.find('.color li').click(function(){
 			var color = $(this).attr('data-color');
 			$this.prev('.helpColorInput').val(color)
-			etbs.dimmed.close({target : 'helpColor'});
+			rbug.dimmed.close({target : 'helpColor'});
 			settings.layer.hide();
 		});
 	}
 	/**
 	 * @alert : 대화창(알림창,경고창)
 	 */
-	etbs.alert = {
+	rbug.alert = {
 		open : function(settings){
 			var base = {
-				target : null,		//(필수)대상 팝업(body 하단에 있는 pop*.jsp - etbsPopup 클래스에 추가하여 pair 시켜야함)
+				target : null,		//(필수)대상 팝업(body 하단에 있는 pop*.jsp - rbugPopup 클래스에 추가하여 pair 시켜야함)
 				confirm : false,	//(선택)확인창일 경우 true
 				message : null,     //(필수)message
 				width : 250,		//(선택)창넓이
@@ -199,18 +199,18 @@ var etbs = {};
 			$(document).one('keydown', function(event){
 				var keyCode = event.keyCode || event.which;
 				if(keyCode == 13 || keyCode == 32){ // enter 혹은 spacebar를 누르면 레이어 닫힘
-					etbs.alert.close(true);
+					rbug.alert.close(true);
 				}
 				if(keyCode == 27){
-					etbs.alert.close(false); // esc를 누르면 alert 레이어 닫힘
+					rbug.alert.close(false); // esc를 누르면 alert 레이어 닫힘
 				}
 				return false; // 엔터를 눌렀을 때 포커스된 버튼의 작동 방지
 				//event.preventDefault(); // IE7은 없는 함수라 위처럼 함.
 			});
-			etbs.alert.callback = settings.callback;
-			etbs.alert.close = function(e){
+			rbug.alert.callback = settings.callback;
+			rbug.alert.close = function(e){
 				settings.layer.hide();
-				etbs.alert.callback(e);
+				rbug.alert.callback(e);
 			}
 		},
 		callback : function(e){
@@ -219,8 +219,8 @@ var etbs = {};
 	/**
 	 * @fileUpload : 파일업로드 (jquery.form)
 	 */
-	etbs.fileObj = new Object();
-	etbs.fileUpload = function(settings){
+	rbug.fileObj = new Object();
+	rbug.fileUpload = function(settings){
 		var base = {
 			form : $('form#fileForm'), 			//(공통)폼 - append 된 폼
 			element : $('span.fileUpload'),     //(필수)
@@ -257,11 +257,11 @@ var etbs = {};
 		if(settings.inputElement){
 			name = settings.inputElement.attr('data-name');
 		}
-		etbs.fileObj[name] = settings;
+		rbug.fileObj[name] = settings;
 		if(settings.form.length == 0){ //페이지당 fileForm 은 한개만 존재
 			body.append('<form name="fileForm" id="fileForm" style="display:none;"></form>');
 		}
-		etbs.fileObj[name].element.each(function(){ //찾아보기 버튼 클릭시
+		rbug.fileObj[name].element.each(function(){ //찾아보기 버튼 클릭시
 			var id = $(this).prev().attr('name');
 			body.append('<input type="file" id="'+name+'_hidden" style="display:none;" />');
 			$(this).click(function(e){
@@ -274,13 +274,13 @@ var etbs = {};
 					body.append($(this).clone(true));
 					$('#fileForm').html('').append($(this).attr('name','uploadFile').removeAttr('id'));
 					$(document.fileForm).ajaxSubmit({
-						method: etbs.fileObj[name].method,
-						url: etbs.fileObj[name].url,
+						method: rbug.fileObj[name].method,
+						url: rbug.fileObj[name].url,
 						success: function(data){
-							etbs.fileObj[name].callback(id, data.resultMap.targetWebPath, name, data);
+							rbug.fileObj[name].callback(id, data.resultMap.targetWebPath, name, data);
 						},
 						error: function(data){
-							etbs.alert.open({message: data.responseJSON ? data.responseJSON.message : 'upload error'});
+							rbug.alert.open({message: data.responseJSON ? data.responseJSON.message : 'upload error'});
 						}
 					});
 				}
@@ -290,7 +290,7 @@ var etbs = {};
 	/**
 	 * @dimmed : 딤처리
 	 */
-	etbs.dimmed = {
+	rbug.dimmed = {
 		openTarget : null,
 		open : function(settings){
 			var base = {
@@ -324,7 +324,7 @@ var etbs = {};
 	/**
 	 * @byteChecker : byte체크
 	 */
-	etbs.byteChecker = function(settings){
+	rbug.byteChecker = function(settings){
 		var base = {
 			element : null,		//(필수)textarea 또는 input
 			max : null,			//(필수)data-max='' 예)4000
@@ -358,7 +358,7 @@ var etbs = {};
 	/**
 	 * @lengthChecker : 글자수 체크
 	 */
-	etbs.lengthChecker = function(settings){
+	rbug.lengthChecker = function(settings){
 		var base = {
 			element : null,		//(필수)textarea 또는 input
 			max : null,			//(필수)data-max='' 예)80
@@ -386,7 +386,7 @@ var etbs = {};
 	/**
 	 * @test : 개발시 사용
 	 */
-    etbs.test = function(settings){
+    rbug.test = function(settings){
 		var base = {
 			element : null,	//(공통)개발시 사용
 			close : null	//(공통)개발시 사용
@@ -402,7 +402,7 @@ var etbs = {};
     /**
 	 * @slide : 아래화살표를 누르면 펴지고 위화살을 누르면 펴지는 기능(toggle slide)
 	 */
-	etbs.slide = function(settings){
+	rbug.slide = function(settings){
 		var base = {
 			element : null,
 			speed : 150
@@ -436,9 +436,9 @@ var etbs = {};
 	/**
 	 * @menu : 좌측메뉴,좌측메뉴찾기,상단메뉴,즐겨찾기
 	 */
-	etbs.menu = function(settings){ //common menu
+	rbug.menu = function(settings){ //common menu
 		var base = {
-			element : null, //element : $('div#menu') //etbs.common.js
+			element : null, //element : $('div#menu') //rbug.common.js
 			left : {
 				btnMenu : $('.btnMenu'),
 				favAdd : $('div#menu .iconFav')
@@ -467,11 +467,11 @@ var etbs = {};
 			if($(this).hasClass('on')){
 				$(this).removeClass('on');
 				settings.element.removeClass('on');
-				etbs.dimmed.close({target:'menu'})
+				rbug.dimmed.close({target:'menu'})
 			}else{
 				$(this).addClass('on');
 				settings.element.addClass('on');
-				etbs.dimmed.open({target:'menu',transparent:true})
+				rbug.dimmed.open({target:'menu',transparent:true})
 				$('#searchMenu').focus();
 			}
 		});
@@ -508,7 +508,7 @@ var etbs = {};
 		}
 		var insertUserMenuFavorite = function(obj){
 			if($('#header ul.menu li').length >= 9){
-				etbs.alert.open({message : '더는 즐겨찾기 메뉴를 추가할 수 없습니다.'})
+				rbug.alert.open({message : '더는 즐겨찾기 메뉴를 추가할 수 없습니다.'})
 				return;
 			}
 			var href = obj.parent().find('a').attr('href');
@@ -592,9 +592,9 @@ var etbs = {};
 	/**
 	 * @popup : 팝업
 	 */
-	etbs.popup = function(settings){
+	rbug.popup = function(settings){
 		var base = {
-			target : null, 				//(필수)etbs.popup 하위 객체를 생성, 주체 레이어
+			target : null, 				//(필수)rbug.popup 하위 객체를 생성, 주체 레이어
 			width : 500, 				//(선택)팝업 넓이 사이즈
 			height : 300, 				//(선택)팝업 높이 사이즈
 			top : null, 				//(선택)팝업 상하 위치
@@ -611,11 +611,11 @@ var etbs = {};
 			callback : function(e){} 	//(선택)콜백 - 확인,취소에따라 어떤 값을 'e' 에 담을 수 있다.
 		}
 		settings = $.extend(base, settings);
-		etbs.zIndex++;
-		var layer = $('div.etbsPopup.' + settings.target);
+		rbug.zIndex++;
+		var layer = $('div.rbugPopup.' + settings.target);
 
 		if(settings.preView){
-			layer = $('div.etbsPreview.' + settings.target);
+			layer = $('div.rbugPreview.' + settings.target);
 		}
 		if(!settings.radio && settings.sheetId){ //복구시
 			var sheet = window[settings.sheetId];
@@ -644,7 +644,7 @@ var etbs = {};
 		}else{
 			layer.find('.wrap').css({'width':settings.width,'height':settings.height,'margin-left':-(settings.width/2),'margin-top':-(settings.height/2)});
 		}
-		layer.css({'z-index': etbs.zIndex }).fadeIn(200);
+		layer.css({'z-index': rbug.zIndex }).fadeIn(200);
 		// 다음창 그리드가 넓이 100% 로 잡히게 할때
 		if (settings.sheetId != null) {
 			window[settings.sheetId].FitColWidth();
@@ -654,7 +654,7 @@ var etbs = {};
 				layer.find('form')[0].reset();
 			}
 			if(settings.searchParam && settings.form){
-				etbs.formWrite({
+				rbug.formWrite({
 					element : layer.find('form[name="'+settings.form+'"]'),
 					data : settings.searchParam
 				});
@@ -667,12 +667,12 @@ var etbs = {};
 			layer.fadeOut(200);
 			settings.callback(e);
 		}
-		etbs.popup[settings.target] = settings;
+		rbug.popup[settings.target] = settings;
 	}
 	/**
 	 * @wpopup : 윈도우팝업
 	 */
-	etbs.wpopup = function(settings){
+	rbug.wpopup = function(settings){
 		var base = {
 			width: 800,
 			height: 650,
@@ -733,13 +733,13 @@ var etbs = {};
 			}
 		}
 		settings = $.extend(base, settings);
-		etbs.wpopup[settings.target] = settings;
-		etbs.wpopup[settings.target].open();
+		rbug.wpopup[settings.target] = settings;
+		rbug.wpopup[settings.target].open();
 	}
 	/**
 	 * @tab : 텝기능
 	 */
-	etbs.tab = function(settings){
+	rbug.tab = function(settings){
 		var base = {
 			element : null, 			//(필수)텝 엘레먼트
 			index : null, 				//(선택)활성화된 텝
@@ -768,13 +768,13 @@ var etbs = {};
 		});
 		settings.init(settings.index);
 		if(settings.id){
-			etbs.tab[settings.id] = settings;
+			rbug.tab[settings.id] = settings;
 		}
 	}
 	/**
 	 * @loading : 로딩 기능
 	 */
-	etbs.loading = {
+	rbug.loading = {
 		start : function(settings){
 			var base = {
 				element : $('div#loading'),	//(공통)로딩 엘레먼트
@@ -796,7 +796,7 @@ var etbs = {};
 	 * @formWrite : 폼에 데이터 변경
 	 * NULL또는 ''값이 들어가야 하는 input 등은 각자 처리해야함
 	 */
-	etbs.formWrite = function(settings){
+	rbug.formWrite = function(settings){
 		var base = {
 			element :null, //(필수)form element
 			data : null, //(필수)
@@ -846,7 +846,7 @@ var etbs = {};
 	 * @formWriteByArray : 폼에 데이터 변경
 	 * NULL또는 ''값이 들어가야 하는 input 등은 각자 처리해야함
 	 */
-	etbs.formWriteByArray = function(settings){
+	rbug.formWriteByArray = function(settings){
 		var base = {
 				element :null, //(필수)form element
 				data : null //(필수)
@@ -894,9 +894,9 @@ var etbs = {};
 		});
 	}
 	/**
-	 * etbs.param: 파라미터(쿼리스트링) 추출 유틸
+	 * rbug.param: 파라미터(쿼리스트링) 추출 유틸
 	 */
-	etbs.param = {
+	rbug.param = {
 		getParams : function () {
 			var vars = [];
 			var hash;
@@ -950,7 +950,7 @@ var etbs = {};
 	/**
 	 * @autoComplete : 자동완성 기능
 	 */
-	etbs.autoComplete = function(settings){
+	rbug.autoComplete = function(settings){
 		var base = {
 			element : null, 						 //(필수)자동완성 input 엘레먼트
 			elementNumber : null,
@@ -1076,7 +1076,7 @@ var etbs = {};
 					});
 					setSearchData(data);
 					if(settings.element.attr('id')){
-						etbs.autoComplete[settings.element.attr('id')] = settings;
+						rbug.autoComplete[settings.element.attr('id')] = settings;
 					}
 				}
 			});

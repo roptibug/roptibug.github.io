@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>ETBS</title>
+<title>RBUG</title>
 <meta charset="utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta http-equiv="cache-control" content="no-cache" />
@@ -12,21 +12,21 @@
 <meta name="description" content="" />
 <meta name="fragment" content="!" />
 <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon" />
-<link rel="stylesheet" href="/css/etbs/etbs.css" type="text/css" />
+<link rel="stylesheet" href="/css/rbug/rbug.css" type="text/css" />
 <script src="/js/lib/jquery/jquery-1.11.1.min.js"></script>
 <script src="/js/lib/jquery/jquery.mask.js"></script>
-<script src="/js/module/etbs.component.js"></script>
-<script src="/js/module/etbs.datePicker.js"></script>
-<script src="/js/module/etbs.validator.js"></script>
-<script src="/js/module/etbs.common.js"></script>
+<script src="/js/module/rbug.component.js"></script>
+<script src="/js/module/rbug.datePicker.js"></script>
+<script src="/js/module/rbug.validator.js"></script>
+<script src="/js/module/rbug.common.js"></script>
 </head>
 <body>
 <div id="alert">
 	<div class="wrapper">
 		<div class="alert"></div>
 		<div class="btnWrap">
-			<span class="button confirm" onclick="etbs.alert.close(true)"><button type="button">확인</button></span>
-			<span class="button cancel" onclick="etbs.alert.close(false)"><button type="button">취소</button></span>
+			<span class="button confirm" onclick="rbug.alert.close(true)"><button type="button">확인</button></span>
+			<span class="button cancel" onclick="rbug.alert.close(false)"><button type="button">취소</button></span>
 		</div>
 	</div>
 </div>
@@ -40,7 +40,7 @@
 	<p>'이름'은 필수 입력값입니다</p>
 	<span class="arrow"></span>
 </div>
-<div id="dimmed" onclick="etbs.dimmed.close({target:'dimmed'})"></div>
+<div id="dimmed" onclick="rbug.dimmed.close({target:'dimmed'})"></div>
 <div id="datePicker"></div>
 <div id="autoCompleteLayer" class="autoCompleteLayer"></div>
 <div id="container">
@@ -85,7 +85,7 @@
 			</div>
 		</div>
 		<script>
-		etbs.tab({
+		rbug.tab({
 			element : $('#tabDisplay'),
 			tabContentWrap :  $('#tabDisplayWrap'),
 			index : 1, //0부터 index 순
@@ -94,8 +94,8 @@
 		});
 		</script>
 		
-		<button type="button" onclick="etbs.tab.tabDisplay.init(0)">텝1</button>
-		<button type="button" onclick="etbs.tab.tabDisplay.init(1)">텝2</button>
+		<button type="button" onclick="rbug.tab.tabDisplay.init(0)">텝1</button>
+		<button type="button" onclick="rbug.tab.tabDisplay.init(1)">텝2</button>
 		
 		<h2>텝3 (기능있는거)</h2>
 		<div class="tabWrap">
@@ -117,7 +117,7 @@
 			</div>
 		</div>
 		<script>
-		etbs.tab({
+		rbug.tab({
 			element : $('#tabOrder'),
 			tabContentWrap :  $('#tabOrderWrap'),
 			index : 0, //0부터 index 순
@@ -129,7 +129,7 @@
 		<div class="titleWrap">
 			<h4>슬라이드 테스트</h4>
 			<div class="btnArea">
-				<span class="button ico"><a href="javascript:void(0)"><b class="etbsSlide up" data-target="slideOrderInfo"></b></a></span>
+				<span class="button ico"><a href="javascript:void(0)"><b class="rbugSlide up" data-target="slideOrderInfo"></b></a></span>
 			</div>
 		</div>
 		<div class="slideArea slideOrderInfo">

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>ETBS</title>
+<title>RBUG</title>
 <meta charset="utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta http-equiv="cache-control" content="no-cache" />
@@ -12,21 +12,21 @@
 <meta name="description" content="" />
 <meta name="fragment" content="!" />
 <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon" />
-<link rel="stylesheet" href="/css/etbs/etbs.css" type="text/css" />
+<link rel="stylesheet" href="/css/rbug/rbug.css" type="text/css" />
 <script src="/js/lib/jquery/jquery-1.11.1.min.js"></script>
 <script src="/js/lib/jquery/jquery.mask.js"></script>
-<script src="/js/module/etbs.component.js"></script>
-<script src="/js/module/etbs.datePicker.js"></script>
-<script src="/js/module/etbs.validator.js"></script>
-<script src="/js/module/etbs.common.js"></script>
+<script src="/js/module/rbug.component.js"></script>
+<script src="/js/module/rbug.datePicker.js"></script>
+<script src="/js/module/rbug.validator.js"></script>
+<script src="/js/module/rbug.common.js"></script>
 </head>
 <body>
 <div id="alert">
 	<div class="wrapper">
 		<div class="alert"></div>
 		<div class="btnWrap">
-			<span class="button confirm" onclick="etbs.alert.close(true)"><button type="button">확인</button></span>
-			<span class="button cancel" onclick="etbs.alert.close(false)"><button type="button">취소</button></span>
+			<span class="button confirm" onclick="rbug.alert.close(true)"><button type="button">확인</button></span>
+			<span class="button cancel" onclick="rbug.alert.close(false)"><button type="button">취소</button></span>
 		</div>
 	</div>
 </div>
@@ -40,7 +40,7 @@
 	<p>'이름'은 필수 입력값입니다</p>
 	<span class="arrow"></span>
 </div>
-<div id="dimmed" onclick="etbs.dimmed.close({target:'dimmed'})"></div>
+<div id="dimmed" onclick="rbug.dimmed.close({target:'dimmed'})"></div>
 <div id="datePicker"></div>
 <div id="autoCompleteLayer" class="autoCompleteLayer"></div>
 <div id="container">
@@ -49,16 +49,16 @@
 
 		<h2>샘플 레이어</h2>
 
-		<p>말풍선 쿠폰 레이어 테스트(1)  <span class="etbsHelp" data-target="helpCoupon"></span></p>
+		<p>말풍선 쿠폰 레이어 테스트(1)  <span class="rbugHelp" data-target="helpCoupon"></span></p>
 		<br><br>
-		<p><span class="noicon etbsHelp" data-target="helpExample" data-width="300" data-height="200">말풍선 쿠폰 레이어 테스트 (2) </span></p>
+		<p><span class="noicon rbugHelp" data-target="helpExample" data-width="300" data-height="200">말풍선 쿠폰 레이어 테스트 (2) </span></p>
 		<br><br>
-		<p class="tr">말풍선 우측 예제 레이어 테스트(3)  <span class="etbsHelp" data-target="helpExample" data-width="200" data-height="100"></span></p>
+		<p class="tr">말풍선 우측 예제 레이어 테스트(3)  <span class="rbugHelp" data-target="helpExample" data-width="200" data-height="100"></span></p>
 		<br><br>
 
 		<h3>색상표</h3>
 
-		<p><input type="text" class="helpColorInput" name="" value="#01DF01" /> <span class="button etbsHelpColor"><button type="button">색상표</button></span> <span class="targetColor"></span></p>
+		<p><input type="text" class="helpColorInput" name="" value="#01DF01" /> <span class="button rbugHelpColor"><button type="button">색상표</button></span> <span class="targetColor"></span></p>
 
 		<br><br>
 
