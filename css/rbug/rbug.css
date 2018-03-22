@@ -89,72 +89,22 @@ ul.color li {width:10px; height:10px; float:left;}
 #guide a:hover {font-weight:bold; letter-spacing:-1px; color:#000;}
 #guide .close {display:block; cursor:pointer; position:absolute; right:10px; top:10px; width:28px; height:18px; font-size:11px; color:#fff;}
 #guide .open {display:block; padding:0 10px; height:30px; line-height:30px; background:#333; color:#fff; position:absolute; left:-56px; top:51px;}
-#container {width:100%; overflow:hidden; position:relative; box-sizing:border-box;}
+#container {width:100%; overflow:hidden; position:relative; box-sizing:border-box; min-height:700px;}
 
 #wrapper {padding:10px; box-sizing:border-box; overflow:hidden; position:relative; min-height:810px;}
 #wrapper h2 {color:#333; padding:10px 0 0 25px; font-size:14px; background:url(/img/basic/dot_h2.gif) no-repeat 3px 13px;}
 #wrapper h3 {color:#333; padding:10px 0 0 25px; font-size:14px; background:url(/img/basic/dot_h3.gif) no-repeat 8px 15px;}
-#header {width:100%; border-bottom:1px solid #d6e6f1; background-color:#f1f6f8;} /* background:url(/img/basic/bg_top.png) repeat-x; */
-#header .wrap {width:100%; height:80px; position:relative;}/* background:url(/img/basic/bg_top_dot.png) repeat; */
-#header h1 {line-height:35px; font-weight:normal; text-align:left; padding-left:10px; font-size:22px; color:#444; font-family:'arial','verdana','돋움','dotum',sans-serif;}
-#header h1 a {color:#444;}
-#header h1 span {font-size:18px; font-weight:bold; color:#777;}
-#header .login {position:absolute; right:10px; top:10px;  font-size:11px; color:#444;}
-#header .login b {font-size:12px;}
-#header .login a {color:#333;}
-#header .login .button {margin-left:10px; margin-top:-1px;}
-#header .menuOpen {width:30px; height:30px; left:0; top:50px; z-index:3; cursor:pointer; background:url(/img/basic/btn_aside_open.png) no-repeat; position:absolute;}
-#header .menuClose {width:30px; height:30px; left:200px; top:80px; z-index:3; cursor:pointer; background:url(/img/basic/btn_aside_close.png) no-repeat; position:absolute;}
-#header ul.menu {position:absolute; left:160px; height:30px; overflow:hidden; top:51px; width:100%; box-sizing:border-box; padding-right:160px;}
-#header ul.menu li {border:1px solid #d6e6f1; display:block; vertical-align:bottom; height:30px; margin-right:5px; padding:0; line-height:30px; color:#fff; position:relative; float:right; background-color:#71a0c8;}
-#header ul.menu li a {display:block; padding:0 35px 0 25px; color:#fff;}
-#header ul.menu li a:hover {color:#fff;}
-#header ul.menu li.on {background:#fff; color:#555; font-weight:bold; letter-spacing:-1px;}
-#header ul.menu li.on a {color:#333;}
-#header ul.menu li.link {background:#1f4b70;}
-#header ul.menu li .close {display:block; cursor:pointer; position:absolute; right:5px; top:5px; width:18px; height:18px; background:url(/img/basic/btn_fav_close.png) repeat 0 -18px;}
-#header ul.menu li.on .close {background-position:0 0;}
+#header {width:100%;} 
+#header .wrap {width:100%; height:80px; position:relative;}
+#header h1 {text-align:center; padding:20px 0;}
+#header h1 img{width:100px;}
 
-.company #header {background-color:#a88cb2;}
-.company #header h1 a {color:#4f1f60;}
-.company #header h1 a span {color:#76617f;}
 
-.vendor #header {background-color:#8daa77;}
-.vendor #header h1 a {color:#436926;}
-.vendor #header h1 a span {color:#627d4c;}
+#header ul {width:100%; clear:both; text-align:center;}
+#header ul li {display:inline-block; font-size:16px; color:#333; line-height:30px; font-weight:bold; font-family:arial;}
+#header ul li a{display:block; padding:0 20px; color:#333;}
 
-#menu {display:none; font-size:11px; border-right:1px solid #7a96ae; color:#fff; width:300px; background:#f1f6f8; position:fixed; box-shadow:0 0 10px rgba(0,0,0,0.4); padding-top:45px; height:100%; z-index:460; left:0; top:0;}
-#menu a {color:#fff; display:block;}
-#menu .search {position:absolute; left:0; top:0; width:100%; z-index:2; height:45px; background-color:#7a96ae;}
-#menu #searchMenu {width:235px; border:1px solid #1f4b70;}
-#menu .search form {display:block; padding:10px;}
-#menu .scroll {position:absolute;top:45px;left:0;right:0;bottom:65px;overflow:auto;box-sizing:border-box;}
-#menu .menu:first-child {display:none;}
-#menu .menu {overflow:hidden; border-bottom:1px solid #7a96ae; height:30px;} /*#dfe8ee*/
-#menu .menu.on {height:auto;}
-#menu h3  {display:none;}
-#menu h4,
-#menu h5,
-#menu h6 {font-size:11px; line-height:30px; margin:0; font-weight:normal; cursor:pointer; position:relative; white-space:nowrap; letter-spacing:-1px;}
-#menu h4 a,
-#menu h5 a,
-#menu h6 a {font-size:11px; line-height:30px; margin:0; font-weight:normal;}
-#menu h4 {padding:0 10px; background:#1f4b70;}
-#menu h5 {padding:0 30px; background:#66849e;}
-#menu h6 {padding:0 45px; background:#f1f6f8;}
-#menu h6,
-#menu h6 a {color:#555;}
 
-#menu strong {font-weight:normal;}
-#menu b {font-weight:normal; color:#ff5500;}
-
-.templateWrap {width:100%; clear:both; overflow:hidden; padding-bottom:10px;}
-.templateWrap .con {width:205px; height:205px; float:left; box-sizing:border-box; margin:10px;}
-.templateWrap .con table td {border:1px solid #ff46f8; width:50px; height:50px; box-sizing:border-box;}
-.templateWrap .con table td.on {background:#ffc5fd;}
-.templateWrap .con1 {width:205px; height:150px; float:left; box-sizing:border-box; margin:10px;}
-.templateWrap .con1 table td {border:1px solid #ff46f8; width:50px; height:50px; box-sizing:border-box;}
-.templateWrap .con1 table td.on {background:#ffc5fd;}
 .btnMenu {width:24px; cursor:pointer; height:48px; position:fixed; z-index:100; left:0; top:42px; background:url(/img/basic/btn_bg.png) no-repeat;}
 .btnMenu span {display:block; position:absolute; left:5px; top:20px; width:5px; height:9px; background:url(/img/basic/btn_on.png) no-repeat;}
 .btnMenu.on {left:200px; display:none;}
