@@ -73,7 +73,13 @@
 
 		<script>
 		function test333(){
-			rbug.alert.open({message : '될수있으면 한줄로 사용해주세요'});
+			rbug.alert.open({
+				message : '될수있으면 한줄로 사용해주세요',
+				callback : function(){
+					console.log(3);
+				}
+			
+			}); //rbug.alert.open(123) 하면 어디에뭐가들어가는지?
 		}
 		</script>
 
@@ -88,7 +94,7 @@
 			console.log('testCancelCallback')
 		}
 		</script>
-		<span class="button" onclick="test1()"><button type="button">경고창</button> 일반 alert창</span>
+		<span class="button" onclick="test1()"><button type="button">경고창</button></span>
 		<script>
 		function test1(){
 			rbug.alert.open({
@@ -100,7 +106,7 @@
 		}
 		</script>
 		<br><br>
-		<span class="button" onclick="test2()"><button type="button">확인창</button>confirm 창</span>
+		<span class="button" onclick="test2()"><button type="button">확인창</button></span>
 		<script>
 		function test2(){
 			rbug.alert.open({

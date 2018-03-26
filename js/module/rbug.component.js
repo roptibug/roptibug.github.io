@@ -68,7 +68,7 @@ var rbug = {};
 			ie7 : (!!window.navigator.userAgent.match(/MSIE 7.0/)) ? true : false,
 			ie8 : (!!window.navigator.userAgent.match(/MSIE 8.0/)) ? true : false
 		},
-		zIndex : 400,
+		zIndex : 400
 	}
 	/**
 	 * @help : 말풍선 아이콘에 마우스 올렸을때 레이어 나타나는 기능
@@ -185,35 +185,36 @@ var rbug = {};
 				layer : $('div#alert'),						//(공통)레이어
 				layerContent : $('div#alert .alert'),		//(공통)레이어
 				btnCancel : $('div#alert .button.cancel'),	//(공통)레이어
-				callback : function(e){}					//(선택)콜백
-			}
-			settings = $.extend(base, settings);
-			if(settings.confirm){
+				callback : function(e){
+					console.log(1)
+				}					//(선택)콜백
+			}//base 객체 초기화하고
+			settings = $.extend(base, settings);// 입력값+base 머지 
+			if(settings.confirm){ // confirm값이 트루면 캔슬버튼 보여줌
 				settings.btnCancel.show();
-			}else{
+			}else{// false면 숨김
 				settings.btnCancel.hide();
 			}
 			settings.layerContent.html(settings.message)
 			settings.layer.show();
 			settings.layer.find('.wrapper').css({'width': settings.width, 'height': settings.height, 'margin-left': -(settings.width/2), 'margin-top': -(settings.height/2)});
 			$(document).one('keydown', function(event){
-				var keyCode = event.keyCode || event.which;
+				var keyCode = event.keyCode || event.which; //키값 가져오기 keycode는 안되는 브라우져(파폭)도 있음
 				if(keyCode == 13 || keyCode == 32){ // enter 혹은 spacebar를 누르면 레이어 닫힘
 					rbug.alert.close(true);
 				}
 				if(keyCode == 27){
 					rbug.alert.close(false); // esc를 누르면 alert 레이어 닫힘
 				}
-				return false; // 엔터를 눌렀을 때 포커스된 버튼의 작동 방지
+				return false; // 엔터를 눌렀을 때 포커스된 버튼의 작동 방지 ??
 				//event.preventDefault(); // IE7은 없는 함수라 위처럼 함.
 			});
-			rbug.alert.callback = settings.callback;
-			rbug.alert.close = function(e){
+			rbug.alert.callback = settings.callback; //위에 settings = $.extend(base, settings); 여기서 넣은거 아닌가? 전역으로 밖에서 접근할일이 있어서 전역으로 넣어주는과정이 필요
+			rbug.alert.close = function(e){ // 닫을때 이벤트처리
 				settings.layer.hide();
-				rbug.alert.callback(e);
+				rbug.alert.callback(e); //무슨 키 눌렀는지 확인
 			}
-		},
-		callback : function(e){
+			//
 		}
 	}
 	/**

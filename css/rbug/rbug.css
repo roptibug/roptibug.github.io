@@ -91,7 +91,7 @@ ul.color li {width:10px; height:10px; float:left;}
 #guide .open {display:block; padding:0 10px; height:30px; line-height:30px; background:#333; color:#fff; position:absolute; left:-56px; top:51px;}
 #container {width:100%; overflow:hidden; position:relative; box-sizing:border-box; min-height:700px;}
 
-#wrapper {padding:10px; box-sizing:border-box; overflow:hidden; position:relative; min-height:810px;}
+#wrapper {padding:10px; box-sizing:border-box; overflow:hidden; position:relative; min-height:810px; width:900px; margin:0 auto;}
 #wrapper h2 {color:#333; padding:10px 0 0 25px; font-size:14px; background:url(/img/basic/dot_h2.gif) no-repeat 3px 13px;}
 #wrapper h3 {color:#333; padding:10px 0 0 25px; font-size:14px; background:url(/img/basic/dot_h3.gif) no-repeat 8px 15px;}
 #header {width:100%;} 
