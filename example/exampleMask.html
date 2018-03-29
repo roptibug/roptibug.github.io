@@ -15,6 +15,7 @@
 <link rel="stylesheet" href="/css/rbug/rbug.css" type="text/css" />
 <script src="/js/lib/jquery/jquery-1.11.1.min.js"></script>
 <script src="/js/lib/jquery/jquery.mask.js"></script>
+<script src="/js/lib/jquery/jquery.inputmask.bundle.js"></script> 
 <script src="/js/module/rbug.component.js"></script>
 <script src="/js/module/rbug.datePicker.js"></script>
 <script src="/js/module/rbug.validator.js"></script>
@@ -58,19 +59,37 @@
 <div id="container">
 	<div id="wrapper">
 		<!-- wrapper -->
-		<h2>IBMask</h2>
+		<!--<h2>Mask</h2>
 
 		<input type="text" id="maskMe">
 		<script>
 		$('#maskMe').IBMaskEdit('yyyy-MM-dd hh:mm:ss');
-		</script>
+		</script> -->
 
 		<!--// wrapper -->
+		<div>
+		    <input type="text" id="testNumber">숫자만 입력
+		    <input type="text" id="testNumber2">
+		</div>
 	</div>
-	
+	<script>
+		$("#testNumber").keyup(function () {
+		    $("#testNumber").inputmask("numeric", {
+		        groupSeparator: ",",    //separator 설정
+		        autoGroup: true,      //천단위 그룹
+		        integerDigits: 15        //자리수 설정
+		    });
+		    $("#testNumber")[0].focus();
+		});
+		
+		$(document).ready(function(){
+		    $('#testNumber2').inputmask('999,999,999,99', { numericInput: true });    //123456  =>  ___.__1.234,56
+		});
+	</script>
 </div>
 <div id="footer">
 	<p>Copyright © 2018 rbug. All Rights Reserved.</p>
 </div>
+
 </body>
 </html>
