@@ -209,7 +209,7 @@ var rbug = {};
 				return false; // 엔터를 눌렀을 때 포커스된 버튼의 작동 방지 ??
 				//event.preventDefault(); // IE7은 없는 함수라 위처럼 함.
 			});
-			rbug.alert.callback = settings.callback; //위에 settings = $.extend(base, settings); 여기서 넣은거 아닌가? 전역으로 밖에서 접근할일이 있어서 전역으로 넣어주는과정이 필요
+			rbug.alert.callback = settings.callback; // 전역으로 밖에서 접근할일이 있어서 전역으로 넣어주는과정이 필요
 			rbug.alert.close = function(e){ // 닫을때 이벤트처리
 				settings.layer.hide();
 				rbug.alert.callback(e); //무슨 키 눌렀는지 확인
