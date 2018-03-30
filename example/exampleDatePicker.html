@@ -197,10 +197,12 @@
 		<script>
 		rbug.datePicker({
 			element : $('#datePicker5_1'),
+			/*
 			limit : { //(선택)제한기간
 				start : '2016-11-03', //(yyyyy-MM-dd,yyyyyMMdd 등등 포맷 일자까지만 받음)
 				end : '2016-12-25'
 			},
+			*/
 			callback : function(){
 				console.log(this.limit); //rbug.datePicker.datePicker5
 				//console.log('start.date : ' + this.start.date.format('yyyy-MM-dd HH:mm'));
@@ -209,7 +211,6 @@
 		});
 		</script>
 		<br><br>
-
 
 
 
@@ -226,7 +227,7 @@
 		*/
 		rbug.datePicker({
 			element : $('#datePicker6'),
-			limitUrl : '/example/getDateLimit',
+			//limitUrl : '/example/getDateLimit',
 			callback : function(){
 				console.log(6); //rbug.datePicker.datePicker6
 			}
@@ -246,7 +247,7 @@
 		*/
 		rbug.datePicker({
 			element : $('#datePicker7'),
-			limitUrl : '/example/getDateLimit',
+			//limitUrl : '/example/getDateLimit',
 			callback : function(){
 				console.log(6); //rbug.datePicker.datePicker6
 			}

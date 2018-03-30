@@ -104,67 +104,7 @@
 			});
 		}
 		</script>
-		<span class="button popCompany" onclick="testPop4()"><button type="button">사업자정보 확인</button></span>
-		<script>
-		function testPop4(){
-			rbug.popup({
-				target :'popCompany',
-				width : 400,
-				height : 200,
-				callback : function(e){
-				}
-			});
-		}
-		</script>
-		<span class="button popCompanyNone" onclick="testPop5()"><button type="button">사업자정보 확인 없음</button></span>
-		<script>
-		function testPop5(){
-			rbug.popup({
-				target :'popCompanyNone',
-				width : 400,
-				height : 200,
-				callback : function(e){
-				}
-			});
-		}
-
-		</script>
-		<span class="button popMemberHistory" onclick="testPop6()"><button type="button">회원등급이력</button></span>
-		<script>
-		function testPop6(){
-			rbug.popup({
-				target :'popMemberHistory',
-				width : 500,
-				height : 500,
-				callback : function(e){
-				}
-			});
-		}
-		</script>
-		<span class="button popMemberSearch" onclick="testPop7()"><button type="button">회원조회</button></span>
-		<script>
-		function testPop7(){
-			rbug.popup({
-				target :'popMemberSearch',
-				width : 500,
-				height : 500,
-				callback : function(e){
-				}
-			});
-		}
-		</script>
-		<span class="button popSelect" onclick="testPop8()"><button type="button">선택팝업</button></span>
-		<script>
-		function testPop8(){
-			rbug.popup({
-				target :'popSelect',
-				width : 300,
-				height : 350,
-				callback : function(e){
-				}
-			});
-		}
-		</script>
+	
 		<!--// wrapper -->
 
 
@@ -215,15 +155,202 @@
 	<p>Copyright © 2018 rbug. All Rights Reserved.</p>
 </div>
 <!-- 팝업영역 -->
-<jsp:include page="/WEB-INF/jsp/popup/example/popAddress.jsp" /><!-- 우편번호찾기 -->
-<jsp:include page="/WEB-INF/jsp/popup/example/popCalendarAdd.jsp" /><!-- 휴일설정 -->
-<jsp:include page="/WEB-INF/jsp/popup/example/popCalendarView.jsp" /><!-- 사업자정보확인 -->
-<jsp:include page="/WEB-INF/jsp/popup/example/popCategory.jsp" /><!-- 관리분류조회 -->
-<jsp:include page="/WEB-INF/jsp/popup/example/popCompany.jsp" /><!-- 사업자정보확인 -->
-<jsp:include page="/WEB-INF/jsp/popup/example/popCompanyNone.jsp" /><!-- 사업자정보확인없음 -->
-<jsp:include page="/WEB-INF/jsp/popup/example/popMemberHistory.jsp" /><!-- 회원등급이력 -->
-<jsp:include page="/WEB-INF/jsp/popup/example/popMemberSearch.jsp" /><!-- 회원조회 -->
-<jsp:include page="/WEB-INF/jsp/popup/example/popSelect.jsp" /><!-- 사업자정보확인 -->
+<!-- 우편번호찾기 -->
+<div class="rbugPopup popAddress">
+	<div class="wrap">
+		<div class="btnClose" onclick="rbug.popup.popAddress.close(false);"></div>
+		<!-- wrap -->
+		<h1><b>우편번호 찾기</b></h1>	
+		<div class="searchWrapper">
+			<table>
+				<tr>
+					<th>구분</th>
+					<td>
+						<select>
+							<option>읍/면/동</option>
+						</select>
+						<input type="text" size="20">
+						<span class="button"><button type="submit">조회</button></span>
+						<span class="button"><button type="reset">초기화</button></span>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div class="titleWrap">
+			<h4>우편번호 검색결과</h4>
+		</div>
+		<div class="btnWrap">
+			<span class="button confirm" onclick="rbug.popup.popAddress.close(true);"><button type="button">확인</button></span>
+			<span class="button cancel" onclick="rbug.popup.popAddress.close(false);"><button type="button">취소</button></span>
+		</div>
+		<!--// wrap -->
+	</div>
+</div>
+
+
+<!-- 휴일설정 -->
+<div class="rbugPopup popCalendarAdd">
+	<div class="wrap">
+		<div class="btnClose" onclick="rbug.popup.popCalendarAdd.close(false);"></div>
+		<!-- wrap -->		
+		<h1><b>휴일설정</b></h1>
+		<table class="colT">
+			<tr>
+				<th>기간</th>
+				<td>
+					<span class="datePicker commonDatePicker" data-format="yyyyMMdd">
+						<input type="text" value="" />
+						<input type="text" value="" />
+						<button type="button" class="btnDatePicker"></button>
+					</span>	
+				</td>
+			</tr>
+			<tr>
+				<th>기간내 요일반복</th>
+				<td>
+					<ul class="inline">
+						<li><label><input type="checkbox"> 월요일</label></li>
+						<li><label><input type="checkbox"> 회요일</label></li>
+						<li><label><input type="checkbox"> 수요일</label></li>
+						<li><label><input type="checkbox"> 목요일</label></li>
+						<li><label><input type="checkbox"> 금요일</label></li>
+						<li><label><input type="checkbox"> 토요일</label></li>
+						<li><label><input type="checkbox"> 일요일</label></li>
+					</ul>
+				</td>
+			</tr>
+			<tr>
+				<th>휴일유형</th>
+				<td>
+					<select>
+						<option>일반휴무</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<th>설명</th>
+				<td>
+					<textarea style="height:150px;">신청은 쉬지만 신청다음날은 주말이어도 쉬지 않습니다.</textarea>
+				</td>
+			</tr>
+		</table>
+		<div class="btnWrap">
+			<span class="button confirm" onclick="rbug.popup.popCalendarAdd.close(true);"><button type="button">확인</button></span>
+			<span class="button cancel" onclick="rbug.popup.popCalendarAdd.close(false);"><button type="button">취소</button></span>
+		</div>
+		
+		<!--// wrap -->
+	</div>
+</div>
+
+<!-- 사업자정보확인 -->
+<div class="rbugPopup popCalendarView">
+	<div class="wrap">
+		<div class="btnClose" onclick="rbug.popup.popCalendarView.close(false);"></div>
+		<!-- wrap -->
+				
+		<h1><b>휴일설정</b></h1>	
+		<table class="colT">
+			<tr>
+				<th>휴일유형</th>
+				<td>
+					<select>
+						<option>일반휴무</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<th>기간</th>
+				<td>2014.01.01 ~ 2014.01.04</td>
+			</tr>
+			<tr>
+				<th>설명</th>
+				<td class="con">신청은 쉬지만 신청다음날은 주말이어도 쉬지 않습니다.</td>
+			</tr>
+		</table>
+		<div class="btnWrap">
+			<span class="button confirm" onclick="rbug.popup.popCalendarView.close(true);"><button type="button">확인</button></span>
+			<span class="button cancel" onclick="rbug.popup.popCalendarView.close(false);"><button type="button">취소</button></span>
+		</div>
+		
+		<!--// wrap -->
+	</div>
+</div>
+
+
+<!-- 관리분류조회 -->
+<div class="rbugPopup popCategory">
+	<div class="wrap">
+		<div class="btnClose" onclick="rbug.popup.popCategory.close(false);"></div>
+		<!-- wrap -->
+		<h1><b>관리분류 조회</b></h1>	
+		<div class="searchWrapper">
+			<table>
+				<tr>
+					<th>
+						<select>
+							<option>분류명</option>
+						</select>
+					</th>
+					<td><input type="text" value="" /></td>
+					<th>관리여부</th>
+					<td>
+						<select>
+							<option>관리함</option>
+						</select>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div class="btnWrap">
+			<span class="button"><button type="submit">조회</button></span>
+			<span class="button"><button type="reset">초기화</button></span>
+		</div>
+			
+		<table class="colT">
+			<tr>
+				<th>대분류</th>
+				<th>중분류</th>
+				<th>소분류</th>
+			</tr>
+			<tr>				
+				<td>
+					<select multiple="multiple" class="multiple">
+						<option>카테고리명</option>
+						<option>카테고리명</option>
+						<option>카테고리명</option>
+						<option>카테고리명</option>
+						<option>카테고리명</option>
+					</select>
+				</td>
+				<td>
+					<select multiple="multiple" class="multiple">
+						<option>카테고리명</option>
+						<option>카테고리명</option>
+						<option>카테고리명</option>
+						<option>카테고리명</option>
+						<option>카테고리명</option>
+					</select>
+				</td>
+				<td>
+					<select multiple="multiple" class="multiple">
+						<option>카테고리명</option>
+						<option>카테고리명</option>
+						<option>카테고리명</option>
+						<option>카테고리명</option>
+						<option>카테고리명</option>
+					</select>
+				</td>
+			</tr>
+		</table>
+		<div class="btnWrap">
+			<span class="button confirm" onclick="rbug.popup.popCategory.close(true);"><button type="button">확인</button></span>
+			<span class="button cancel" onclick="rbug.popup.popCategory.close(false);"><button type="button">취소</button></span>
+		</div>
+		<!--// wrap -->
+	</div>
+</div>
+
 <!--// 팝업영역 -->
 </body>
 </html>

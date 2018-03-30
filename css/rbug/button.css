@@ -8,7 +8,7 @@
 .btnSearch  {background:url(/img/basic/btn_search.gif) no-repeat; width:20px; height:20px;}
 
 .button a {box-shadow:1px 2px 2px rgba(0,0,0,0.1); border:1px solid #888; background:#999; background:linear-gradient(#888,#999); border-radius:2px; color:#fff; display:inline-block; white-space:nowrap; box-sizing:border-box; height:20px; line-height:19px; padding:0 6px;}
-.button button {box-shadow:1px 2px 2px rgba(0,0,0,0.1); border:1px solid #888; background:#999; background:linear-gradient(#888,#999); border-radius:2px; color:#fff; display:inline-block; white-space:nowrap; box-sizing:border-box; height:20px; line-height:17px; padding:0 6px;}
+.button button {box-shadow:1px 2px 2px rgba(0,0,0,0.1); border:1px solid #888; background:#999; background:linear-gradient(#888,#999); border-radius:2px; color:#fff; display:inline-block; white-space:nowrap; box-sizing:border-box; height:20px; line-height:19px; padding:0 6px;}
 .button.on a,
 .button.on button,
 .button button[type='submit'] {border:1px solid #ff8f12; background:#ff8f12; background:linear-gradient(#ff8f12,#ff9e31);}
