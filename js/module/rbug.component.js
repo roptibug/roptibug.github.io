@@ -22,7 +22,8 @@ var rbug = {};
 		};
 	}
 	/**
-	 * IE7, IE8에서 trim 추가
+	 * IE7, IE8에서 trim 추가 
+	 * 공백제거
 	 */
 	if(typeof String.prototype.trim !== 'function'){
 		String.prototype.trim = function() {
