@@ -4,11 +4,11 @@
  * 2. 모든 컴포넌트 플러그인은 선택옵션과 필수옵션을 받아 기본옵션을 덮는다. ($.extend 사용)
  * 3. rbug.common.js 에서 플러그인을 공통으로 실행시키지만 별도 사용시 class 또는 id 로 분기하여 각화면별 구현한다.
  */
-var rbug = {};
+var rbug = new Object();
 (function(){
 	'use strict';
 	/**
-	 * map이 지원되지 않는 브라우져를 위해 추가. (for @DI)
+	 * map이 지원되지 않는 브라우져를 위해 추가.
 	 */
 	if(!('map' in Array.prototype)){
 		Array.prototype.map = function(mapper, that){
@@ -43,7 +43,7 @@ var rbug = {};
 				+ (c ? d + Math.abs(n - i).toFixed(c).slice(2) : "");
 	};
 	/**
-	 * @modules module 에 담아 controller에서 사용한다.(local변수 사용시)
+	 * @modules 
 	 */
 	rbug = {
 		modules : {},
