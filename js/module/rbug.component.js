@@ -293,7 +293,7 @@ var rbug = new Object();
 			if(this.openTarget == 'ibDatePicker'){
 				IBCalendar.Close();
 			}
-			$('div#dimmed,div#datePicker,div.helpColor').hide();
+			$('div#dimmed,div#datePicker,div.helpColor').hide(); //datePicker에서는 딤처리만 사용하는듯?
 			$('div.btnMenu,div#menu').removeClass('on');
 			$('div#dimmed').removeClass('transparent');
 		}

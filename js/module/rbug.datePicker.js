@@ -7,6 +7,14 @@
  */
 (function(){
 	"use strict";
+	/*
+	"use strict";
+	흔히 발생하는 코딩 실수를 잡아내서 예외를 발생.
+	상대적으로 안전하지 않은 액션이 발생하는 것을 방지, 예를 들면 전역객체에 접근하려 하는 것들
+	혼란스럽거나 제대로 고려되지 않은 기능들을 비활성화시킴.
+	파일 전체에 적용시킬 수도 있고, 특정 함수 안에서만 적용시킬 수도 있음
+	 */
+	
 	/**
 	 * @rbug.datePicker
 	 * 날짜포맷 설정
@@ -23,7 +31,7 @@
 			hour : false,				//(공통)시간선택여부
 			width : 212,				//(공통)넓이
 			height : 245, 				//(공통)hour기 true면 271
-			format : null,//(선택)data-format="yyyyMMdd"
+			format : null,				//(선택)data-format="yyyyMMdd"
 			min : null,					//(공통)최소년도
 			max : null,					//(공통)최대년도
 			term : false, 				//(공통)기간선택여부
@@ -150,9 +158,9 @@
 				return settings.option[time];
 			}
 		}
-		settings = $.extend(base, settings);
+		settings = $.extend(base, settings); //머지
 
-		if(!settings.min){
+		if(!settings.min){ //최소년도가 아니면 10을빼줌?
 			settings.min = parseInt(new Date().format('yyyy')) - 10;
 		}
 		if(!settings.max){
