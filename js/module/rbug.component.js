@@ -147,6 +147,36 @@ var rbug = new Object();
 			settings.layer.hide();
 		});
 	}
+	/*
+	 * @input  
+	 */
+	rbug.checkbox = {
+		open : function(settings){
+			var base = {
+				checked : false, //체크유무
+				element : null, //요소 갯수
+				value : null, //받아온 값
+				callback : function(e){
+					console.log(1)
+				}
+			}
+			settings = $.extend(base, settings);// 입력값+base 머지
+		}
+	}
+	rbug.radio = {
+		open : function(settings){
+			var base = {
+				element : null,
+				value : null,
+				callback : function(e){
+					console.log(1)
+				}
+			}
+			settings = $.extend(base, settings);// 입력값+base 머지
+		}
+	}
+	
+	
 	/**
 	 * @alert : 대화창(알림창,경고창)
 	 */

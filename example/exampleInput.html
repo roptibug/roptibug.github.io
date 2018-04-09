@@ -59,12 +59,14 @@
 	
 	<div id="wrapper">
 	<style>
+	
 	input[type="checkbox"]{display:none;}
 	input[type="checkbox"] + label span {display:inline-block; width:19px; height:19px; margin:-2px 10px 0 0; cursor:pointer; vertical-align:middle; background:url(/img/basic/check_radio_sheet.png) left top no-repeat;}
 	input[type="checkbox"]:checked + label span {background:url(/img/basic/check_radio_sheet.png)-19px top no-repeat;}
 	input[type="radio"]{display:none;}
 	input[type="radio"] + label span{display:inline-block; width:19px; height:19px; margin:-2px 10px 0 0; cursor:pointer; vertical-align:middle; background:url(/img/basic/check_radio_sheet.png) -38px top no-repeat;}
 	input[type="radio"]:checked + label span{background:url(/img/basic/check_radio_sheet.png)-57px top no-repeat;}
+	
 	</style>
 		<form>
 			<input type="checkbox" name="fruit" value="apple" id="fruit1"><label for="fruit1"><span></span>사과</label><br>
@@ -77,20 +79,8 @@
 			<input type="radio" name="color" value="blue" id="color2"><label for="color2"><span></span>파랑</label><br>
 			<input type="radio" name="color" value="yellow" id="color3"><label for="color3"><span></span>노랑</label><br>
 			<br>
-			<select name="animal">
-				<option value="dog">dog</option>
-				<option value="cat" selected="selected">cat</option>
-				<option value="cow">cow</option>
-			</select>
 		</form>
-		
 	</div>
-	<script>
-	var animal = document.getElementsByName("animal");
-	var animalIndexNo = animal[0].selectedIndex;
-	console.log(animalIndexNo);
-	</script>
-	
 </div>
 <div id="footer">
 	<p>Copyright © 2018 rbug. All Rights Reserved.</p>
