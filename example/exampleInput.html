@@ -69,17 +69,48 @@
 	
 	</style>
 		<form>
-			<input type="checkbox" name="fruit" value="apple" id="fruit1"><label for="fruit1"><span></span>사과</label><br>
-			<input type="checkbox" name="fruit" value="banana" id="fruit2"><label for="fruit2"><span></span>바나나</label><br>
-			<input type="checkbox" name="fruit" value="tomato" id="fruit3"><label for="fruit3"><span></span>토마토</label><br>
-			<input type="checkbox" name="fruit" value="grape" id="fruit4"><label for="fruit4"><span></span>포도</label><br>
-			<!-- <input type="submit" value="Submit"> <br> -->
+			<div class="checkbox">
+				<h2>체크박스</h2>
+				<p>
+					<span class="button" onclick="addElement()"><button type="button">요소추가</button></span>
+					<span class="button" onclick="removeElement()"><button type="button">요소제거</button></span>
+				</p>
+				<input type="checkbox" name="fruit" value="apple" id="fruit1"><label for="fruit1"><span></span>사과</label><br>
+				<input type="checkbox" name="fruit" value="banana" id="fruit2"><label for="fruit2"><span></span>바나나</label><br>
+				<input type="checkbox" name="fruit" value="tomato" id="fruit3"><label for="fruit3"><span></span>토마토</label><br>
+				<input type="checkbox" name="fruit" value="grape" id="fruit4"><label for="fruit4"><span></span>포도</label><br>
+				<!-- <input type="submit" value="Submit"> <br> -->
+			</div>
 			<br>
-			<input type="radio" name="color" value="red" id="color1"><label for="color1"><span></span>빨강</label><br>
-			<input type="radio" name="color" value="blue" id="color2"><label for="color2"><span></span>파랑</label><br>
-			<input type="radio" name="color" value="yellow" id="color3"><label for="color3"><span></span>노랑</label><br>
-			<br>
+			<!-- <div class="radio">
+				<input type="radio" name="color" value="red" id="color1"><label for="color1"><span></span>빨강</label><br>
+				<input type="radio" name="color" value="blue" id="color2"><label for="color2"><span></span>파랑</label><br>
+				<input type="radio" name="color" value="yellow" id="color3"><label for="color3"><span></span>노랑</label><br>
+				<br>
+			</div> -->
 		</form>
+		<script>
+		function addElement(){
+			rbug.checkbox.open({
+				add : function(){
+					settings.content.append('<input type="checkbox" name="fruit" value="apple" id="fruit1"><label for="fruit1"><span></span>사과</label><br>');
+				},
+				callback : function(){
+					console.log(2);
+				},
+			});
+		}
+		function removeElement(){
+			rbug.checkbox.open({
+				remove : function(){
+					settings.lastElement.remove();
+				},
+				callback : function(){
+					console.log(3);
+				}
+			});
+		}
+		</script>
 	</div>
 </div>
 <div id="footer">
