@@ -13,6 +13,19 @@
 <meta name="fragment" content="!" />
 <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon" />
 <link rel="stylesheet" href="/css/rbug/rbug.css" type="text/css" />
+<style>
+.checkbox_list {}
+.checkbox_list li {display:inline-block; margin-right:10px; cursor:pointer;}
+.checkbox_list li:before {content:''; display:inline-block; width:19px; vertical-align:middle; height:19px; background:url(/img/basic/check_radio_sheet.png) 0 0 no-repeat;}
+.checkbox_list li.on:before {background-position:-19px 0;}
+
+input[type="checkbox"] {display:none;}
+input[type="checkbox"] + label span {display:inline-block; width:19px; height:19px; margin:-2px 10px 0 0; cursor:pointer; vertical-align:middle; background:url(/img/basic/check_radio_sheet.png) left top no-repeat;}
+input[type="checkbox"]:checked + label span {background:url(/img/basic/check_radio_sheet.png)-19px top no-repeat;}
+input[type="radio"]{display:none;}
+input[type="radio"] + label span{display:inline-block; width:19px; height:19px; margin:-2px 10px 0 0; cursor:pointer; vertical-align:middle; background:url(/img/basic/check_radio_sheet.png) -38px top no-repeat;}
+input[type="radio"]:checked + label span{background:url(/img/basic/check_radio_sheet.png)-57px top no-repeat;}
+</style>
 <script src="/js/lib/jquery/jquery-1.11.1.min.js"></script>
 <script src="/js/lib/jquery/jquery.mask.js"></script>
 <script src="/js/module/rbug.component.js"></script>
@@ -56,61 +69,41 @@
 	</ul>
 </div>
 <div id="container">
-	
 	<div id="wrapper">
-	<style>
 	
-	input[type="checkbox"]{display:none;}
-	input[type="checkbox"] + label span {display:inline-block; width:19px; height:19px; margin:-2px 10px 0 0; cursor:pointer; vertical-align:middle; background:url(/img/basic/check_radio_sheet.png) left top no-repeat;}
-	input[type="checkbox"]:checked + label span {background:url(/img/basic/check_radio_sheet.png)-19px top no-repeat;}
-	input[type="radio"]{display:none;}
-	input[type="radio"] + label span{display:inline-block; width:19px; height:19px; margin:-2px 10px 0 0; cursor:pointer; vertical-align:middle; background:url(/img/basic/check_radio_sheet.png) -38px top no-repeat;}
-	input[type="radio"]:checked + label span{background:url(/img/basic/check_radio_sheet.png)-57px top no-repeat;}
-	
-	</style>
-		<form>
-			<div class="checkbox">
-				<h2>체크박스</h2>
-				<p>
-					<span class="button" onclick="addElement()"><button type="button">요소추가</button></span>
-					<span class="button" onclick="removeElement()"><button type="button">요소제거</button></span>
-				</p>
-				<input type="checkbox" name="fruit" value="apple" id="fruit1"><label for="fruit1"><span></span>사과</label><br>
-				<input type="checkbox" name="fruit" value="banana" id="fruit2"><label for="fruit2"><span></span>바나나</label><br>
-				<input type="checkbox" name="fruit" value="tomato" id="fruit3"><label for="fruit3"><span></span>토마토</label><br>
-				<input type="checkbox" name="fruit" value="grape" id="fruit4"><label for="fruit4"><span></span>포도</label><br>
-				<!-- <input type="submit" value="Submit"> <br> -->
-			</div>
-			<br>
-			<!-- <div class="radio">
-				<input type="radio" name="color" value="red" id="color1"><label for="color1"><span></span>빨강</label><br>
-				<input type="radio" name="color" value="blue" id="color2"><label for="color2"><span></span>파랑</label><br>
-				<input type="radio" name="color" value="yellow" id="color3"><label for="color3"><span></span>노랑</label><br>
-				<br>
-			</div> -->
+		<form name="checkTestForm">
+			<h2>체크박스</h2>
+			<p>
+				<div id="checkbox_fruit"></div>
+				<script>
+				rbug.checkbox.init({
+					id : 'checkbox_fruit',
+					list : [
+						{value : 'apple', disabled : false},
+						{value : 'banana', disabled : true},
+						{value : 'tomato', disabled : false},
+						{value : 'grape', disabled : false}
+					]
+				});
+				</script>
+			</p>
 		</form>
-		<script>
-		function addElement(){
-			rbug.checkbox.open({
-				add : function(){
-					settings.content.append('<input type="checkbox" name="fruit" value="apple" id="fruit1"><label for="fruit1"><span></span>사과</label><br>');
-				},
-				callback : function(){
-					console.log(2);
-				},
-			});
-		}
-		function removeElement(){
-			rbug.checkbox.open({
-				remove : function(){
-					settings.lastElement.remove();
-				},
-				callback : function(){
-					console.log(3);
-				}
-			});
-		}
-		</script>
+		
+		<form name="radioTestForm">
+			<h2>라디오</h2>
+			<p>
+				<div id="radio_fruit"></div>
+				<script>
+				$(function(){
+					/* rbug.radio.init({
+						id : 'radio_fruit',
+						list : ['apple','banana','tomato','grape']
+					}); */
+				});
+				</script>
+			</p>
+		</form>
+		
 	</div>
 </div>
 <div id="footer">

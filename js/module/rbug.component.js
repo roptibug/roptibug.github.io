@@ -151,25 +151,27 @@ var rbug = new Object();
 	 * @input  
 	 */
 	rbug.checkbox = {
-		open : function(settings){
+		init : function(settings){
 			var base = {
-				elementNum : null, //요소 갯수
-				value : null, //받아온 값
-				name : null, //이름
-				id : null, //id
-				content : $('form .checkbox'),
-				lastElement : $('form .checkbox input:last'),
-				add : function(){
-					
-				},
-				remove : function(){
-					
-				},
-				callback : function(){
-					console.log(1)
-				}
+				id : null, //(필수)
+				list : [], //(필수)
 			}
-			settings = $.extend(base, settings);// 입력값+base 머지
+			settings = $.extend(base, settings);
+			var el = $('#'+settings.id);
+			el.append('<ul class="checkbox_list"></ul>');
+			el.append('<input type="hidden" name="'+settings.id+'" />');
+			for(var i in settings.list){
+				var disabled = '';
+				if(settings.list[i].disabled){
+					disabled = 'disabled';
+				}
+				el.find('ul').append('<li class="'+disabled+'">'+settings.list[i].value+'</li>');
+			}
+			el.find('li').on('click',function(){
+				el.find('li').removeClass('on');
+				$(this).addClass('on');
+				$('input[name="'+settings.id+'"]').val($(this).text());
+			});
 		}
 	}
 
