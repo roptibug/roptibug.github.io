@@ -13,19 +13,6 @@
 <meta name="fragment" content="!" />
 <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon" />
 <link rel="stylesheet" href="/css/rbug/rbug.css" type="text/css" />
-<style>
-.checkbox_list {}
-.checkbox_list li {display:inline-block; margin-right:10px; cursor:pointer;}
-.checkbox_list li:before {content:''; display:inline-block; width:19px; vertical-align:middle; height:19px; background:url(/img/basic/check_radio_sheet.png) 0 0 no-repeat;}
-.checkbox_list li.on:before {background-position:-19px 0;}
-
-input[type="checkbox"] {display:none;}
-input[type="checkbox"] + label span {display:inline-block; width:19px; height:19px; margin:-2px 10px 0 0; cursor:pointer; vertical-align:middle; background:url(/img/basic/check_radio_sheet.png) left top no-repeat;}
-input[type="checkbox"]:checked + label span {background:url(/img/basic/check_radio_sheet.png)-19px top no-repeat;}
-input[type="radio"]{display:none;}
-input[type="radio"] + label span{display:inline-block; width:19px; height:19px; margin:-2px 10px 0 0; cursor:pointer; vertical-align:middle; background:url(/img/basic/check_radio_sheet.png) -38px top no-repeat;}
-input[type="radio"]:checked + label span{background:url(/img/basic/check_radio_sheet.png)-57px top no-repeat;}
-</style>
 <script src="/js/lib/jquery/jquery-1.11.1.min.js"></script>
 <script src="/js/lib/jquery/jquery.mask.js"></script>
 <script src="/js/module/rbug.component.js"></script>
@@ -79,31 +66,32 @@ input[type="radio"]:checked + label span{background:url(/img/basic/check_radio_s
 				rbug.checkbox.init({
 					id : 'checkbox_fruit',
 					list : [
-						{value : 'apple', disabled : false},
-						{value : 'banana', disabled : true},
-						{value : 'tomato', disabled : false},
-						{value : 'grape', disabled : false}
+						{value : 'apple', disabled : false, checked : false},
+						{value : 'banana', disabled : true, checked : false},
+						{value : 'tomato', disabled : true, checked : false},
+						{value : 'grape', disabled : false, checked : false}
 					]
 				});
 				</script>
 			</p>
 		</form>
-		
 		<form name="radioTestForm">
 			<h2>라디오</h2>
 			<p>
 				<div id="radio_fruit"></div>
 				<script>
-				$(function(){
-					/* rbug.radio.init({
-						id : 'radio_fruit',
-						list : ['apple','banana','tomato','grape']
-					}); */
+				rbug.radio.init({
+					id : 'radio_fruit',
+					list : [
+						{value : 'apple', disabled : false, checked : false},
+						{value : 'banana', disabled : true, checked : false},
+						{value : 'tomato', disabled : false, checked : false},
+						{value : 'grape', disabled : false, checked : false}
+					]
 				});
 				</script>
 			</p>
 		</form>
-		
 	</div>
 </div>
 <div id="footer">

@@ -148,7 +148,7 @@ var rbug = new Object();
 		});
 	}
 	/*
-	 * @input  
+	 * @input  checkbox
 	 */
 	rbug.checkbox = {
 		init : function(settings){
@@ -157,23 +157,80 @@ var rbug = new Object();
 				list : [], //(필수)
 			}
 			settings = $.extend(base, settings);
-			var el = $('#'+settings.id);
-			el.append('<ul class="checkbox_list"></ul>');
-			el.append('<input type="hidden" name="'+settings.id+'" />');
+			var $el = $('#'+settings.id);
+			$el.append('<ul class="checkbox_list"></ul>');
 			for(var i in settings.list){
 				var disabled = '';
 				if(settings.list[i].disabled){
 					disabled = 'disabled';
 				}
-				el.find('ul').append('<li class="'+disabled+'">'+settings.list[i].value+'</li>');
+				$el.find('ul').append('<li class="'+disabled+'">'+settings.list[i].value+'<input type="checkbox" value="'+settings.list[i].value+'" name="'+settings.id+'" disabled/></li>');
 			}
-			el.find('li').on('click',function(){
-				el.find('li').removeClass('on');
-				$(this).addClass('on');
-				$('input[name="'+settings.id+'"]').val($(this).text());
+			var isChecked = false;
+			var checkedValue = '';
+			var isDisabled = false;
+			$el.find('li').on('click',function(){
+				var self = $(this);
+				if(self.hasClass('disabled')){
+					self.find('input').prop('disabled',true);
+				}else{
+					self.find('input').prop('disabled',false);
+					if(self.hasClass('on')){
+						self.find('input').prop('checked',false);
+						self.removeClass('on');
+					}else{
+						self.find('input').prop('checked',true);
+						self.addClass('on');
+					}
+				}
+				isChecked = self.find('input').prop('checked');
+				checkedValue = self.find('input').val();
+				isDisabled = self.find('input').prop('disabled');
+				console.log('checked='+isChecked,'value='+checkedValue,'disabled='+isDisabled);
 			});
 		}
 	}
+	/*
+	 * @input  radio
+	 */
+	rbug.radio = {
+		init : function(settings){
+			var base = {
+				id : null, //(필수)
+				list : [], //(필수)
+			}
+			settings = $.extend(base, settings);
+			var $el = $('#'+settings.id);
+			$el.append('<ul class="radio_list"></ul>');
+			for(var i in settings.list){
+				var disabled = '';
+				if(settings.list[i].disabled){
+					disabled = 'disabled';
+				}
+				$el.find('ul').append('<li class="'+disabled+'">'+settings.list[i].value+'<input type="radio" value="'+settings.list[i].value+'" name="'+settings.id+'" disabled/></li>');
+			}
+			var isChecked = false;
+			var checkedValue = '';
+			var isDisabled = false;
+			$el.find('li').on('click',function(){
+				var self = $(this);
+				if(self.hasClass('disabled')){
+					self.find('input').prop('disabled',true);
+				}else{
+					self.find('input').prop('disabled',false);
+					$el.find('li').removeClass("on");
+					self.addClass("on");
+					self.find('input').prop('checked',true)
+				}
+				isChecked = self.find('input').prop('checked');
+				checkedValue = self.find('input').val();
+				isDisabled = self.find('input').prop('disabled');
+				console.log('checked='+isChecked,'value='+checkedValue,'disabled='+isDisabled);
+				
+			});
+		}
+	}
+	
 
 	/**
 	 * @alert : 대화창(알림창,경고창)

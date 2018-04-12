@@ -361,3 +361,19 @@ ul.dateSelect li {display:inline;}
 ul.dateSelect .button button {background:#ddd; color:#777; border:1px solid #aaa;}
 ul.dateSelect .on .button button  {background:#fff; color:#333; border:1px solid #aaa;}
 
+/**********************
+	input : 체크박스,라디오
+**********************/
+.checkbox_list {}
+.checkbox_list li {display:inline-block; margin-right:10px; cursor:pointer;}
+.checkbox_list li:before {content:''; display:inline-block; width:19px; vertical-align:middle; height:19px; background:url(/img/basic/check_radio_sheet.png) 0 0 no-repeat;}
+.checkbox_list li.on:before {background-position:-19px 0;}
+.checkbox_list li.disabled {opacity:0.5; cursor:default}
+.radio_list {}
+.radio_list li {display:inline-block; margin-right:10px; cursor:pointer;}
+.radio_list li:before {content:''; display:inline-block; width:19px; vertical-align:middle; height:19px; background:url(/img/basic/check_radio_sheet.png) -38px 0 no-repeat;}
+.radio_list li.on:before {background-position:-57px 0;}
+.radio_list li.disabled {opacity:0.5; cursor:default}
+
+input[type="checkbox"] {display:block;}
+input[type="radio"] {display:block;}
