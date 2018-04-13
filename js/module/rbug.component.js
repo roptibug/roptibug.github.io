@@ -175,6 +175,10 @@ var rbug = new Object();
 					self.find('input').prop('disabled',true);
 				}else{
 					self.find('input').prop('disabled',false);
+					if(self.find('input[value="all"]')){
+						$el.find('input').prop('checked',true);
+						//$el.find('li').addClass('on');
+					}
 					if(self.hasClass('on')){
 						self.find('input').prop('checked',false);
 						self.removeClass('on');
