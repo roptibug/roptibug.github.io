@@ -175,10 +175,7 @@ var rbug = new Object();
 					self.find('input').prop('disabled',true);
 				}else{
 					self.find('input').prop('disabled',false);
-					if(self.find('input[value="all"]')){
-						$el.find('input').prop('checked',true);
-						//$el.find('li').addClass('on');
-					}
+					
 					if(self.hasClass('on')){
 						self.find('input').prop('checked',false);
 						self.removeClass('on');
@@ -192,6 +189,20 @@ var rbug = new Object();
 				isDisabled = self.find('input').prop('disabled');
 				console.log('checked='+isChecked,'value='+checkedValue,'disabled='+isDisabled);
 			});
+			rbug.checkbox.checkAll = function(target, bool){
+				console.log(bool, target);
+				if(bool){
+					$el.find('input').prop('checked',true);
+					$el.find('li').addClass('on');
+					target.setAttribute('data-bool', 'false');
+					console.log(1, bool, target);
+				}else{
+					$el.find('input').prop('checked',false);
+					$el.find('li').removeClass('on');
+					target.setAttribute('data-bool', 'true');
+					console.log(2, bool, target);
+				}
+			}
 		}
 	}
 	/*
@@ -234,7 +245,17 @@ var rbug = new Object();
 			});
 		}
 	}
-	
+	/*
+	 * @input  select
+	 */
+	rbug.select = {
+		init : function(settings){
+			var base = {
+				id : null, //(필수)
+				list : [], //(필수)
+			}
+		}
+	}
 
 	/**
 	 * @alert : 대화창(알림창,경고창)
