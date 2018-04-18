@@ -377,3 +377,14 @@ ul.dateSelect .on .button button  {background:#fff; color:#333; border:1px solid
 
 input[type="checkbox"] {display:block;}
 input[type="radio"] {display:block;}
+
+.select_list {overflow:; border:1px solid red; width:100px; height:25px; line-height:25px; text-align:center; color:#000; cursor:pointer; position:relative}
+.select_list li {outline:1px solid gray; display:none;}
+.select_list span {display:block;}
+.select_list li:first-child {display:block;}
+.select_list li.on {display:block;}
+.select_list li:hover {background:#abc;}
+.select_list li.disabled {opacity:0.5; cursor:default;}
+.select_list li.disabled:hover {background:#fff;}
+
+

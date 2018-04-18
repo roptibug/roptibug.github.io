@@ -190,17 +190,14 @@ var rbug = new Object();
 				console.log('checked='+isChecked,'value='+checkedValue,'disabled='+isDisabled);
 			});
 			rbug.checkbox.checkAll = function(target, bool){
-				console.log(bool, target);
-				if(bool){
+				if(bool === 'true'){
 					$el.find('input').prop('checked',true);
 					$el.find('li').addClass('on');
 					target.setAttribute('data-bool', 'false');
-					console.log(1, bool, target);
 				}else{
 					$el.find('input').prop('checked',false);
 					$el.find('li').removeClass('on');
 					target.setAttribute('data-bool', 'true');
-					console.log(2, bool, target);
 				}
 			}
 		}
@@ -254,6 +251,39 @@ var rbug = new Object();
 				id : null, //(필수)
 				list : [], //(필수)
 			}
+			settings = $.extend(base, settings);
+			var $el = $('#'+settings.id);
+			$el.append('<select name="'+settings.id+'"></select>');
+			$el.append('<ul class="select_list"><span>--선택--</span></ul>');
+			for(var i in settings.list){
+				var disabled = '';
+				if(settings.list[i].disabled){
+					disabled = 'disabled';
+				}
+				$el.find('ul').append('<li class="'+disabled+'">'+settings.list[i].value+'</li>')
+				$el.find('select').append('<option value="'+settings.list[i].value+'" '+disabled+'>'+settings.list[i].value+'</option>')
+			}
+			$el.find('.select_list span').on('click',function(){
+				$('.select_list li').show();
+			});
+			$el.find('li').on('click', function(){
+				var self = $(this);
+				var txt = $(this).html();
+				var liidx = $(this).index() - 1;
+				var optval = $('select option:eq('+liidx+')').attr('value');
+				
+				if($(this).html() === optval){
+					if(self.hasClass('disabled')){
+						self.find('option').prop('disabled',true);
+					}else{
+						$('.select_list span').text(txt);
+						$('.select_list li').hide();
+						$('select option').removeAttr('selected')
+						$('select option:eq('+liidx+')').attr('selected','selected');
+						self.find('option').prop('disabled',false);
+					}
+				}
+			});
 		}
 	}
 

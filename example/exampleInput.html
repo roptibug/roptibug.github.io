@@ -94,7 +94,22 @@
 				</script>
 			</p>
 		</form>
-		<form>
+		<form name="selectTestForm">
+			<h2>셀렉트</h2>
+			<p>
+				<div id="select_fruit"></div>
+				<script>
+				rbug.select.init({
+					id : 'select_fruit',
+					list : [
+						{value : 'apple', disabled : false, selected : false},
+						{value : 'banana', disabled : true, selected : false},
+						{value : 'tomato', disabled : false, selected : false},
+						{value : 'grape', disabled : false, selected : false}
+					]
+				});
+				</script>
+			</p>
 		</form>
 	</div>
 </div>
