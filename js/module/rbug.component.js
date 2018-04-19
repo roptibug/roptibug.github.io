@@ -254,34 +254,35 @@ var rbug = new Object();
 			settings = $.extend(base, settings);
 			var $el = $('#'+settings.id);
 			$el.append('<select name="'+settings.id+'"></select>');
-			$el.append('<ul class="select_list"><span>--선택--</span></ul>');
+			$el.append('<ul class="select_list"></ul>');
 			for(var i in settings.list){
 				var disabled = '';
 				if(settings.list[i].disabled){
 					disabled = 'disabled';
 				}
 				$el.find('ul').append('<li class="'+disabled+'">'+settings.list[i].value+'</li>')
-				$el.find('select').append('<option value="'+settings.list[i].value+'" '+disabled+'>'+settings.list[i].value+'</option>')
+				$el.find('select').append('<option '+disabled+'>'+settings.list[i].value+'</option>')
+				
 			}
-			$el.find('.select_list span').on('click',function(){
+			$el.find('.select_list li:first').on('click',function(){
 				$('.select_list li').show();
 			});
 			$el.find('li').on('click', function(){
-				var self = $(this);
-				var txt = $(this).html();
-				var liidx = $(this).index() - 1;
-				var optval = $('select option:eq('+liidx+')').attr('value');
 				
-				if($(this).html() === optval){
-					if(self.hasClass('disabled')){
-						self.find('option').prop('disabled',true);
-					}else{
-						$('.select_list span').text(txt);
-						$('.select_list li').hide();
-						$('select option').removeAttr('selected')
-						$('select option:eq('+liidx+')').attr('selected','selected');
-						self.find('option').prop('disabled',false);
-					}
+				var self = $(this);
+				var txt = $(this).html(); //li 텍스트
+				var liidx = $(this).index(); //li 인덱스
+				var optval = $('select option:eq('+liidx+')').html(); // 해당 옵션값
+				$el.find('select').attr('value', $(this).html()); // 셀렉트 밸류값과 li텍스트 페어 
+				if(self.hasClass('disabled')){ //li 가 disable클래스 가지면 option도 disable 처리
+					self.find('option').prop('disabled',true);
+				}else{ //disable 아니면 
+					$('.select_list li:first').text(txt); //첫번쨰 li값을 현재 텍스트로 교체
+					//$('.select_list li:first').nextAll().hide();
+					//$('.select_list li:first').show();
+					$('select option').removeAttr('selected') // 선택된 옵션 지우고
+					$('select option:eq('+liidx+')').attr('selected','selected'); //해당 옵션 선택
+					console.log(optval)
 				}
 			});
 		}
